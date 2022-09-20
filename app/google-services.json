@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "885924129732",
+    "project_id": "mconomy-1ff62",
+    "storage_bucket": "mconomy-1ff62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885924129732:android:0e75626abc4a3844969291",
+        "android_client_info": {
+          "package_name": "com.example.mconomy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885924129732-78obvtre6i1a43q56srhukehl0g068hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK-00HTwzuXWXfNa87NqSGEpTmExV0e6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885924129732-78obvtre6i1a43q56srhukehl0g068hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

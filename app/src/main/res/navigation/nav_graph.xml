@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mconomy.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_firstInFragment"
+            app:destination="@id/firstInFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstInFragment"
+        android:name="com.example.mconomy.FirstInFragment"
+        android:label="fragment_first_in"
+        tools:layout="@layout/fragment_first_in" >
+        <action
+            android:id="@+id/action_firstInFragment_to_microFragment"
+            app:destination="@id/microFragment" />
+        <action
+            android:id="@+id/action_firstInFragment_to_macroFragment"
+            app:destination="@id/macroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.mconomy.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/microFragment"
+        android:name="com.example.mconomy.MicroFragment"
+        android:label="fragment_micro"
+        tools:layout="@layout/fragment_micro" >
+        <action
+            android:id="@+id/action_microFragment_to_firstInFragment"
+            app:destination="@id/firstInFragment" />
+        <action
+            android:id="@+id/action_microFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+        <action
+            android:id="@+id/action_microFragment_to_rentabilitateFragment"
+            app:destination="@id/rentabilitateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.mconomy.microdir.BlankFragment"
+        android:label="fragment_inventar"
+        tools:layout="@layout/fragment_inventar" >
+        <action
+            android:id="@+id/action_blankFragment_to_microFragment"
+            app:destination="@id/microFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/macroFragment"
+        android:name="com.example.mconomy.macrodir.MacroFragment"
+        android:label="fragment_macro"
+        tools:layout="@layout/fragment_macro" >
+        <action
+            android:id="@+id/action_macroFragment_to_firstInFragment"
+            app:destination="@id/firstInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rentabilitateFragment"
+        android:name="com.example.mconomy.microdir.RentabilitateFragment"
+        android:label="fragment_rentabilitate"
+        tools:layout="@layout/fragment_rentabilitate" >
+        <action
+            android:id="@+id/action_rentabilitateFragment_to_microFragment"
+            app:destination="@id/microFragment" />
+    </fragment>
+</navigation>

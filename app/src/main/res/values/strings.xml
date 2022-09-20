@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Mconomy</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="autentificare">Autentificare</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mconomy">Mconomy</string>
+    <string name="microeconomie">Microeconomie</string>
+    <string name="inapoi">Inapoi</string>
+    <string name="rentabilitate">Rentabilitate</string>
+    <string name="informatii">Informatii</string>
+    <string name="calculeaza">Calculeaza</string>
+    <string name="adauga_produs">Adauga produs</string>
+    <string name="_0_00">0.00</string>
+    <string name="inregistrare">Inregistrare</string>
+    <string name="confirati_parola">Confirati parola</string>
+    <string name="asigurari">Asigurari</string>
+    <string name="economii_nationale">Economii nationale</string>
+    <string name="deconectare">Deconectare</string>
+    <string name="salveaza_lista_si_incepe_o_sesiune_noua">Salveaza lista si incepe o sesiune noua</string>
+    <string name="vezi_listele">Vezi listele</string>
+</resources>
