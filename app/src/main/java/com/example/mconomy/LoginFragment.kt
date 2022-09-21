@@ -20,6 +20,7 @@ class LoginFragment : Fragment() {
     lateinit var signInEmail: String
     lateinit var signInPassword: String
     lateinit var signInInputsArray: Array<EditText>
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,37 +40,41 @@ class LoginFragment : Fragment() {
         val toRegister = view.findViewById<Button>(R.id.toRegister)
         signInInputsArray = arrayOf(email, password)
         loginID.setOnClickListener {
-
-            signInEmail = emailLOG.text.toString().trim()
-            signInPassword = passwordLOG.text.toString().trim()
-
-            if (notEmpty()) {
-                firebaseAuth.signInWithEmailAndPassword(signInEmail, signInPassword)
-                    .addOnCompleteListener { signIn ->
-                        if (signIn.isSuccessful) {
-                            findNavController().navigate(R.id.action_loginFragment_to_firstInFragment)
-                            Toast.makeText(context, "Conectat cu succes!", Toast.LENGTH_SHORT)
-                                .show()
-                        } else {
-                            Toast.makeText(
-                                context,
-                                "Conectarea a esuat! Reincercati din nou.",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-
-            } else {
-                signInInputsArray.forEach { input ->
-                    if (input.text.toString().trim().isEmpty()) {
-                        input.error = "${input.hint} necesita completare!"
-                    }
-                }
-            }
+            login()
         }
         toRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
 
+        }
+    }
+
+    private fun login(){
+
+        signInEmail = emailLOG.text.toString().trim()
+        signInPassword = passwordLOG.text.toString().trim()
+
+        if (notEmpty()) {
+            firebaseAuth.signInWithEmailAndPassword(signInEmail, signInPassword)
+                .addOnCompleteListener { signIn ->
+                    if (signIn.isSuccessful) {
+                        findNavController().navigate(R.id.action_loginFragment_to_firstInFragment)
+                        Toast.makeText(context, "Conectat cu succes!", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Conectarea a esuat! Reincercati din nou.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+
+        } else {
+            signInInputsArray.forEach { input ->
+                if (input.text.toString().trim().isEmpty()) {
+                    input.error = "${input.hint} necesita completare!"
+                }
+            }
         }
     }
 

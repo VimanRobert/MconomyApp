@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.mconomy.R.id.*
 import com.example.mconomy.databinding.FragmentMicroBinding
@@ -15,6 +16,7 @@ class MicroFragment : Fragment() {
 
 
     private  lateinit var binding : FragmentMicroBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -24,17 +26,16 @@ class MicroFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        binding = FragmentMicroBinding.inflate(inflater,container,false)
-        return inflater.inflate(R.layout.fragment_micro, container, false)
+        binding = FragmentMicroBinding.inflate(layoutInflater, container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val inventar = view.findViewById<Button>(R.id.inventar)
-        inventar.setOnClickListener{
+        binding.inventar.setOnClickListener{
             findNavController().navigate(action_microFragment_to_blankFragment)
         }
 
@@ -46,5 +47,8 @@ class MicroFragment : Fragment() {
         rentID.setOnClickListener{
             findNavController().navigate(action_microFragment_to_rentabilitateFragment)
         }
+
+        val topBarText = activity?.findViewById<TextView>(topbartext)
+        topBarText?.text = "Microeconomie"
     }
     }

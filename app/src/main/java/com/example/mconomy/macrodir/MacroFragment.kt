@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.mconomy.MainActivity
 import com.example.mconomy.R
@@ -34,5 +35,7 @@ class MacroFragment : Fragment() {
         binding.backtomainMacro.setOnClickListener{
             findNavController().navigate(R.id.action_macroFragment_to_firstInFragment)
         }
+        val topBarText = activity?.findViewById<TextView>(R.id.topbartext)
+        topBarText?.text = "Macroeconomie"
     }
 }
