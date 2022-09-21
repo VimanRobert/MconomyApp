@@ -39,12 +39,12 @@ class MicroFragment : Fragment() {
             findNavController().navigate(action_microFragment_to_blankFragment)
         }
 
-        val backtomainMicro = view.findViewById<Button>(R.id.backtomainMicro)
-        backtomainMicro.setOnClickListener{
+
+        binding.backtomainMicro.setOnClickListener{
             findNavController().navigate(action_microFragment_to_firstInFragment)
         }
-        val rentID = view.findViewById<Button>(R.id.rentID)
-        rentID.setOnClickListener{
+
+        binding.rentID.setOnClickListener{
             findNavController().navigate(action_microFragment_to_rentabilitateFragment)
         }
 

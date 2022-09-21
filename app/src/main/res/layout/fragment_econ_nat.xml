@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".macrodir.EconNatFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="@string/completati_campurile_goale_pentru_a_primi_informatii"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/consumid"
+        android:layout_width="291dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="60dp"
+        android:hint="@string/consum"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/importuriid"
+        android:layout_width="291dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="60dp"
+        android:hint="@string/importuri"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exporturiid" />
+
+    <EditText
+        android:id="@+id/cheltuieliGuvid"
+        android:layout_width="291dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:hint="@string/cheltuieli_guvernamentale"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/importuriid" />
+
+    <EditText
+        android:id="@+id/investitiiid"
+        android:layout_width="291dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:hint="@string/investitii"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consumid" />
+
+    <EditText
+        android:id="@+id/exporturiid"
+        android:layout_width="291dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="60dp"
+        android:hint="@string/exporturi"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/investitiiid" />
+
+    <Button
+        android:id="@+id/calculeazaP"
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="86dp"
+        android:backgroundTint="@android:color/system_accent1_400"
+        android:text="@string/calculeaza"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cheltuieliGuvid"
+        tools:targetApi="s" />
+
+    <TextView
+        android:id="@+id/pibText"
+        android:layout_width="122dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="PIB :"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toStartOf="@+id/pibInt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculeazaP" />
+
+    <TextView
+        android:id="@+id/pnbText"
+        android:layout_width="122dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="PNB :"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toStartOf="@+id/pnbInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pibText" />
+
+    <TextView
+        android:id="@+id/pgbText"
+        android:layout_width="123dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="68dp"
+        android:gravity="center"
+        android:text="PGB :"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pgbInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pnbText" />
+
+    <TextView
+        android:id="@+id/pibInt"
+        android:layout_width="137dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="39dp"
+        android:gravity="center"
+        android:text="0 mil"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pibText"
+        app:layout_constraintTop_toBottomOf="@+id/calculeazaP" />
+
+    <TextView
+        android:id="@+id/pnbInput"
+        android:layout_width="135dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center"
+        android:text="0 mil"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pnbText"
+        app:layout_constraintTop_toBottomOf="@+id/pibInt" />
+
+    <TextView
+        android:id="@+id/pgbInput"
+        android:layout_width="135dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="68dp"
+        android:gravity="center"
+        android:text="0 mil"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pgbText"
+        app:layout_constraintTop_toBottomOf="@+id/pnbInput" />
+
+    <TextView
+        android:id="@+id/viewEconType"
+        android:layout_width="287dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="21dp"
+        android:gravity="center"
+        android:text="@string/tipul_economiei_va_aparea_aici_dupa_generarea_calcului"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

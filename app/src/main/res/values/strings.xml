@@ -28,4 +28,11 @@
     <string name="salveaza_lista_si_incepe_o_sesiune_noua">Salveaza lista si incepe o sesiune noua</string>
     <string name="vezi_listele">Vezi listele</string>
     <string name="mconomy_app">Mconomy App</string>
+    <string name="cheltuieli_guvernamentale">Cheltuieli guvernamentale</string>
+    <string name="importuri">Importuri</string>
+    <string name="consum">Consum</string>
+    <string name="exporturi">Exporturi</string>
+    <string name="completati_campurile_goale_pentru_a_primi_informatii">Completati campurile goale pentru a primi informatii</string>
+    <string name="investitii">Investitii</string>
+    <string name="tipul_economiei_va_aparea_aici_dupa_generarea_calcului">** Tipul economiei va aparea aici dupa generarea calcului</string>
 </resources>
