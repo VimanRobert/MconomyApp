@@ -71,6 +71,9 @@
         <action
             android:id="@+id/action_macroFragment_to_firstInFragment"
             app:destination="@id/firstInFragment" />
+        <action
+            android:id="@+id/action_macroFragment_to_econNatFragment"
+            app:destination="@id/econNatFragment" />
     </fragment>
     <fragment
         android:id="@+id/rentabilitateFragment"
@@ -80,5 +83,14 @@
         <action
             android:id="@+id/action_rentabilitateFragment_to_microFragment"
             app:destination="@id/microFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/econNatFragment"
+        android:name="com.example.mconomy.macrodir.EconNatFragment"
+        android:label="fragment_econ_nat"
+        tools:layout="@layout/fragment_econ_nat" >
+        <action
+            android:id="@+id/action_econNatFragment_to_macroFragment"
+            app:destination="@id/macroFragment" />
     </fragment>
 </navigation>

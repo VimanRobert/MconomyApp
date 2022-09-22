@@ -18,10 +18,12 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.mconomy.FirebaseUtils.Extensions.toast
 import com.example.mconomy.FirebaseUtils.FirebaseUtils.firebaseAuth
 import com.example.mconomy.databinding.ActivityMainBinding
+import com.example.mconomy.databinding.FragmentFirstInBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
@@ -33,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var token: MediaSession.Token
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var firstInFragment: FirstInFragment
+    //private lateinit var user: FirebaseUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

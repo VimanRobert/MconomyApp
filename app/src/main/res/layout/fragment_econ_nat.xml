@@ -7,7 +7,7 @@
     tools:context=".macrodir.EconNatFragment">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/toptextview"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"
@@ -18,6 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/consumid"
@@ -30,7 +31,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/toptextview" />
 
     <EditText
         android:id="@+id/importuriid"
@@ -108,9 +109,9 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="10dp"
         android:gravity="center"
-        android:text="PIB :"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/pibInt"
+        android:text="@string/pib"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/pibInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculeazaP" />
 
@@ -122,8 +123,8 @@
         android:layout_marginTop="18dp"
         android:layout_marginEnd="10dp"
         android:gravity="center"
-        android:text="PNB :"
-        android:textSize="22dp"
+        android:text="@string/pnb"
+        android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/pnbInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pibText" />
@@ -135,25 +136,24 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="68dp"
         android:gravity="center"
-        android:text="PGB :"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/pgb"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewEconType"
         app:layout_constraintEnd_toStartOf="@+id/pgbInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pnbText" />
 
     <TextView
-        android:id="@+id/pibInt"
+        android:id="@+id/pibInput"
         android:layout_width="137dp"
         android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="39dp"
         android:gravity="center"
-        android:text="0 mil"
-        android:textSize="22dp"
+        android:text="@string/_0_mil"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pibText"
         app:layout_constraintTop_toBottomOf="@+id/calculeazaP" />
@@ -166,11 +166,11 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="50dp"
         android:gravity="center"
-        android:text="0 mil"
-        android:textSize="22dp"
+        android:text="@string/_0_mil"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pnbText"
-        app:layout_constraintTop_toBottomOf="@+id/pibInt" />
+        app:layout_constraintTop_toBottomOf="@+id/pibInput" />
 
     <TextView
         android:id="@+id/pgbInput"
@@ -179,11 +179,10 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="68dp"
         android:gravity="center"
-        android:text="0 mil"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/_0_mil"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewEconType"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pgbText"
         app:layout_constraintTop_toBottomOf="@+id/pnbInput" />

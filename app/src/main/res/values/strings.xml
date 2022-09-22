@@ -35,4 +35,13 @@
     <string name="completati_campurile_goale_pentru_a_primi_informatii">Completati campurile goale pentru a primi informatii</string>
     <string name="investitii">Investitii</string>
     <string name="tipul_economiei_va_aparea_aici_dupa_generarea_calcului">** Tipul economiei va aparea aici dupa generarea calcului</string>
+    <string name="_0_mil">0 mil</string>
+    <string name="banca">Banca</string>
+    <string name="credite">Credite</string>
+    <string name="imprumuturi">Imprumuturi</string>
+    <string name="profit_investitii">Profit/Investitii</string>
+    <string name="afla_ce_iti_poate_oferi_banca">Afla ce iti poate oferi banca</string>
+    <string name="pib">PIB :</string>
+    <string name="pgb">PGB :</string>
+    <string name="pnb">PNB :</string>
 </resources>

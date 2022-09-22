@@ -32,6 +32,10 @@ class MacroFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        binding.econNat.setOnClickListener{
+            findNavController().navigate(R.id.action_macroFragment_to_econNatFragment)
+        }
+
         binding.backtomainMacro.setOnClickListener{
             findNavController().navigate(R.id.action_macroFragment_to_firstInFragment)
         }

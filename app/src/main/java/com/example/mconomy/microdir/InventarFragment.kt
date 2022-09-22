@@ -13,11 +13,16 @@ import android.widget.Toast
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentInventarBinding
 import com.example.mconomy.microdir.InventarData
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class BlankFragment : Fragment() {
 
     private lateinit var dataInv: InventarData
     private lateinit var binding: FragmentInventarBinding
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +32,8 @@ class BlankFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentInventarBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_inventar, container, false)
+        binding = FragmentInventarBinding.inflate(layoutInflater, container,false)
+        return binding.root
     }
 
     @SuppressLint("SetTextI18n")
@@ -41,30 +46,64 @@ class BlankFragment : Fragment() {
 
         var rezCalc = view.findViewById<TextView>(R.id.rezInitial)
         var rezTotal = view.findViewById<TextView>(R.id.rezTotal)
+        var isAllFieldsChecked = false
 
 
         val calcul = view.findViewById<Button>(R.id.calcul)
         calcul.setOnClickListener {
-            rezCalc.text = (pret.text.toString().toDouble() * cantitate.text.toString().toDouble()).toString()
-            rezTotal.text = (rezTotal.text.toString().toDouble() + rezCalc.text.toString().toDouble()).toString()
+            isAllFieldsChecked = CheckAllFields()
+            if(isAllFieldsChecked){
+                rezCalc.text = (pret.text.toString().toDouble() * cantitate.text.toString()
+                    .toDouble()).toString()
+                rezTotal.text = (rezTotal.text.toString().toDouble() + rezCalc.text.toString()
+                    .toDouble()).toString()
+            }
+        }
+
+
+        binding.addProdus.setOnClickListener(){
+
+            val produsB = binding.numeProdusID.text.toString()
+            val pretB = binding.pretID.text.toString().toDouble()
+            val cantitateB = binding.cantitateID.text.toString().toDouble()
+            val rezcalculB = binding.rezInitial.text.toString().toDouble()
+            val reztotalB = binding.rezTotal.text.toString().toDouble()
+
+            database = Firebase.database.getReference("Inventar")
+            val Inventar = InventarData(produsB, pretB, cantitateB, rezcalculB, reztotalB)
+            database.child(produsB).setValue(Inventar).addOnSuccessListener {
+                produs.text = null
+                pret.text = null
+                cantitate.text = null
+                rezCalc.text = null
+
+                Toast.makeText(context, "Adaugat cu succes !", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener{
+                Toast.makeText(context, "A aparut o problema ! Verifica conexiunea la internet", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.saveInventar.setOnClickListener{
 
         }
 
-        val addProdus = view.findViewById<Button>(R.id.addProdus)
-        addProdus.setOnClickListener(){
-            produs.text = null
-            pret.text = null
-            cantitate.text = null
-            rezCalc.text = null
-            Toast.makeText(context, "Adaugat cu succes !", Toast.LENGTH_SHORT).show()
-        }
-        val saveInventar = view.findViewById<Button>(R.id.saveInventar)
-        saveInventar.setOnClickListener{
+        binding.todatabase.setOnClickListener{
 
         }
-        val todatabase = view.findViewById<Button>(R.id.todatabase)
-        todatabase.setOnClickListener{
-
+    }
+    private fun CheckAllFields(): Boolean {
+        if (binding.numeProdusID.length() == 0) {
+            binding.numeProdusID.error = "Camp obligatoriu !"
+            return false
         }
+        if (binding.pretID.length() == 0) {
+            binding.pretID.error = "Camp obligatoriu !"
+            return false
+        }
+        if (binding.cantitateID.length() == 0) {
+            binding.cantitateID.error = "Camp obligatoriu !"
+            return false
+        }
+        return true
     }
 }
