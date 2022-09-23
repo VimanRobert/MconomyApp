@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/econNat" />
 
     <Button
-        android:id="@+id/infoMicro"
+        android:id="@+id/infoMacro"
         android:layout_width="156dp"
         android:layout_height="64dp"
         android:layout_marginStart="42dp"

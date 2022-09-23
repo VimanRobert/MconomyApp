@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".macrodir.InfoMacroFragment"
+    android:layout_marginStart="20sp"
+    android:layout_marginEnd="10sp"
+    android:layout_marginTop="80sp"
+    android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dp">
+
+    <TextView
+        android:id="@+id/infomacrotop"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:gravity="center"
+        android:text="@string/utilitatile_macroeconomiei"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/R1"
+        app:layout_constraintStart_toStartOf="@+id/R1"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/R1"
+        android:layout_width="wrap_content"
+        android:layout_height="270dp"
+        android:layout_marginTop="35sp"
+        android:text="@string/content_info2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/infomacrotop" />
+    <TextView
+        android:id="@+id/R2"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/R1"
+        android:text="@string/li_banca"
+        android:layout_marginTop="25sp"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/R3"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/R2"
+        android:text="@string/li_economii_nationale"
+        android:layout_marginTop="25sp"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/R4"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/R3"
+        android:text="@string/li_asigurari"
+        android:layout_marginTop="25sp"
+        android:textSize="16sp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

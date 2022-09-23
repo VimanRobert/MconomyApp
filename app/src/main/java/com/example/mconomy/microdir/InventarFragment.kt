@@ -70,8 +70,8 @@ class BlankFragment : Fragment() {
             val reztotalB = binding.rezTotal.text.toString().toDouble()
 
             database = Firebase.database.getReference("Inventar")
-            val Inventar = InventarData(produsB, pretB, cantitateB, rezcalculB, reztotalB)
-            database.child(produsB).setValue(Inventar).addOnSuccessListener {
+            val inventar = InventarData(produsB, pretB, cantitateB, rezcalculB, reztotalB)
+            database.child(produsB).setValue(inventar).addOnSuccessListener {
                 produs.text = null
                 pret.text = null
                 cantitate.text = null

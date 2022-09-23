@@ -19,8 +19,6 @@ class MicroFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
     }
 
     override fun onCreateView(
@@ -46,6 +44,10 @@ class MicroFragment : Fragment() {
 
         binding.rentID.setOnClickListener{
             findNavController().navigate(action_microFragment_to_rentabilitateFragment)
+        }
+
+        binding.infoMicro.setOnClickListener {
+            findNavController().navigate(action_microFragment_to_infoMicroFragment)
         }
 
         val topBarText = activity?.findViewById<TextView>(topbartext)

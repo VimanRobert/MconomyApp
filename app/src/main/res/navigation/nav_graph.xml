@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_microFragment_to_rentabilitateFragment"
             app:destination="@id/rentabilitateFragment" />
+        <action
+            android:id="@+id/action_microFragment_to_infoMicroFragment"
+            app:destination="@id/infoMicroFragment" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
@@ -74,6 +77,9 @@
         <action
             android:id="@+id/action_macroFragment_to_econNatFragment"
             app:destination="@id/econNatFragment" />
+        <action
+            android:id="@+id/action_macroFragment_to_infoMacroFragment"
+            app:destination="@id/infoMacroFragment" />
     </fragment>
     <fragment
         android:id="@+id/rentabilitateFragment"
@@ -91,6 +97,24 @@
         tools:layout="@layout/fragment_econ_nat" >
         <action
             android:id="@+id/action_econNatFragment_to_macroFragment"
+            app:destination="@id/macroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoMicroFragment"
+        android:name="com.example.mconomy.microdir.InfoMicroFragment"
+        android:label="fragment_info_micro"
+        tools:layout="@layout/fragment_info_micro" >
+        <action
+            android:id="@+id/action_infoMicroFragment_to_microFragment"
+            app:destination="@id/microFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoMacroFragment"
+        android:name="com.example.mconomy.macrodir.InfoMacroFragment"
+        android:label="fragment_info_macro"
+        tools:layout="@layout/fragment_info_macro" >
+        <action
+            android:id="@+id/action_infoMacroFragment_to_macroFragment"
             app:destination="@id/macroFragment" />
     </fragment>
 </navigation>
