@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mconomy.FirebaseUtils.FirebaseUtils.firebaseAuth
@@ -33,7 +32,9 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        auth  = FirebaseAuth.getInstance()
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,6 +52,13 @@ class LoginFragment : Fragment() {
         toRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
 
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser!=null){
+            findNavController().navigate(R.id.action_loginFragment_to_firstInFragment)
         }
     }
 
