@@ -56,7 +56,6 @@ class RegisterFragment : Fragment() {
         val registerAccount = view.findViewById<Button>(R.id.registerID)
         registerAccount.setOnClickListener {
             signIn()
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
 
@@ -135,6 +134,7 @@ class RegisterFragment : Fragment() {
         if (notEmpty() &&
             passwordREG.text.toString().trim() == passwordConfirm.text.toString().trim()
         ) {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
             identical = true
         } else if (!notEmpty()) {
             createAccountInputsArray.forEach { input ->

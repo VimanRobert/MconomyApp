@@ -65,6 +65,9 @@
         <action
             android:id="@+id/action_blankFragment_to_microFragment"
             app:destination="@id/microFragment" />
+        <action
+            android:id="@+id/action_blankFragment_to_itemInventarFragment"
+            app:destination="@id/itemInventarFragment" />
     </fragment>
     <fragment
         android:id="@+id/macroFragment"
@@ -80,6 +83,9 @@
         <action
             android:id="@+id/action_macroFragment_to_infoMacroFragment"
             app:destination="@id/infoMacroFragment" />
+        <action
+            android:id="@+id/action_macroFragment_to_bancaFragment"
+            app:destination="@id/bancaFragment" />
     </fragment>
     <fragment
         android:id="@+id/rentabilitateFragment"
@@ -116,5 +122,23 @@
         <action
             android:id="@+id/action_infoMacroFragment_to_macroFragment"
             app:destination="@id/macroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bancaFragment"
+        android:name="com.example.mconomy.macrodir.BancaFragment"
+        android:label="fragment_banca"
+        tools:layout="@layout/fragment_banca" >
+        <action
+            android:id="@+id/action_bancaFragment_to_macroFragment"
+            app:destination="@id/macroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemInventarFragment"
+        android:name="com.example.mconomy.microdir.ItemInventarFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list" >
+        <action
+            android:id="@+id/action_itemInventarFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
     </fragment>
 </navigation>

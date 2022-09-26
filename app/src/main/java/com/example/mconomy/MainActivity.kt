@@ -2,7 +2,6 @@ package com.example.mconomy
 
 
 import android.content.Intent
-import android.media.session.MediaSession
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -15,7 +14,6 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
 
-    private lateinit var token: MediaSession.Token
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 

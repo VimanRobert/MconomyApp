@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentEconNatBinding
-import kotlinx.android.synthetic.main.fragment_econ_nat.*
 
 
 class EconNatFragment : Fragment() {

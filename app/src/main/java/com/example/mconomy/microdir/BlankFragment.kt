@@ -6,15 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentInventarBinding
-import com.example.mconomy.microdir.InventarData
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -23,7 +22,7 @@ class BlankFragment : Fragment() {
     private lateinit var dataInv: InventarData
     private lateinit var binding: FragmentInventarBinding
     private lateinit var database: DatabaseReference
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -32,7 +31,8 @@ class BlankFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentInventarBinding.inflate(layoutInflater, container,false)
+        binding = FragmentInventarBinding.inflate(inflater, container,false)
+        auth  = FirebaseAuth.getInstance()
         return binding.root
     }
 
@@ -40,17 +40,17 @@ class BlankFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var produs = view.findViewById<EditText>(R.id.numeProdusID)
-        var pret = view.findViewById<EditText>(R.id.pretID)
-        var cantitate = view.findViewById<EditText>(R.id.cantitateID)
+        val produs = view.findViewById<EditText>(R.id.numeProdusID)
+        val pret = view.findViewById<EditText>(R.id.pretID)
+        val cantitate = view.findViewById<EditText>(R.id.cantitateID)
 
-        var rezCalc = view.findViewById<TextView>(R.id.rezInitial)
-        var rezTotal = view.findViewById<TextView>(R.id.rezTotal)
+        val rezCalc = view.findViewById<TextView>(R.id.rezInitial)
+        val rezTotal = view.findViewById<TextView>(R.id.rezTotal)
         var isAllFieldsChecked = false
 
 
-        val calcul = view.findViewById<Button>(R.id.calcul)
-        calcul.setOnClickListener {
+        //val calcul = view.findViewById<Button>(R.id.calcul)
+        binding.calcul.setOnClickListener {
             isAllFieldsChecked = CheckAllFields()
             if(isAllFieldsChecked){
                 rezCalc.text = (pret.text.toString().toDouble() * cantitate.text.toString()
@@ -61,7 +61,7 @@ class BlankFragment : Fragment() {
         }
 
 
-        binding.addProdus.setOnClickListener(){
+        binding.addProdus.setOnClickListener{
 
             val produsB = binding.numeProdusID.text.toString()
             val pretB = binding.pretID.text.toString().toDouble()
@@ -83,12 +83,13 @@ class BlankFragment : Fragment() {
             }
         }
 
+
         binding.saveInventar.setOnClickListener{
 
         }
 
         binding.todatabase.setOnClickListener{
-
+            findNavController().navigate(R.id.action_blankFragment_to_itemInventarFragment)
         }
     }
     private fun CheckAllFields(): Boolean {
