@@ -49,18 +49,25 @@ class EconNatFragment : Fragment() {
 
  */
         binding.calculeazaP.setOnClickListener {
-            binding.pnbInput.text = "AAAA"
             isAllFieldsChecked = CheckAllFields()
             if (isAllFieldsChecked) {
-                if (binding.cheltuieliGuvid.text == null) {
+                if (binding.cheltuieliGuvid.text == null &&
+                    binding.exporturiid.text != null &&
+                    binding.importuriid.text != null &&
+                    binding.investitiiid.text != null &&
+                    binding.consumid.text != null ) {
                     binding.viewEconType.text = "** Economie privata"
                     binding.pibInput.text = (binding.consumid.text.toString().toDouble() + binding.investitiiid.text.toString().toDouble() +
                             (binding.exporturiid.text.toString().toDouble() - binding.importuriid.text.toString().toDouble())).toString()
 
-                }else if (binding.exporturiid.text == null || binding.importuriid.text == null) {
+                }else if (binding.exporturiid.text == null && binding.importuriid.text == null) {
                     binding.viewEconType.text = "** Economie inchisa"
                     binding.pibInput.text = (binding.consumid.text.toString().toDouble() + binding.investitiiid.text.toString().toDouble()).toString()
-                }else{
+                }else if(binding.exporturiid.text != null &&
+                         binding.importuriid.text != null &&
+                         binding.investitiiid.text != null &&
+                         binding.consumid.text != null &&
+                         binding.cheltuieliGuvid.text != null){
                     binding.pibInput.text = (binding.consumid.text.toString().toDouble() + binding.investitiiid.text.toString().toDouble() + binding.cheltuieliGuvid.text.toString().toDouble() +
                             (binding.exporturiid.text.toString().toDouble() - binding.importuriid.text.toString().toDouble())).toString()
                     binding.viewEconType.text = "** Economie deschisa"

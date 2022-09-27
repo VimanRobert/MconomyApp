@@ -1,5 +1,6 @@
 package com.example.mconomy.microdir
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,7 @@ class InventarAdapter(): RecyclerView.Adapter<InventarAdapter.InventarViewHolder
         return invList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateInventarList(invList : List<InventarData>){
         this.invList.clear()
         this.invList.addAll(invList)
@@ -38,11 +40,11 @@ class InventarAdapter(): RecyclerView.Adapter<InventarAdapter.InventarViewHolder
 
     class InventarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val produs: TextView = itemView.findViewById(R.id.numeProdusID)
-        val pret: TextView = itemView.findViewById(R.id.pretID)
-        val cantitate: TextView = itemView.findViewById(R.id.cantitateID)
-        var rez: TextView = itemView.findViewById(R.id.rezInitial)
-        var rezTotal: TextView = itemView.findViewById(R.id.rezTotal)
+        val produs: TextView = itemView.findViewById(R.id.nume_produs_input)
+        val pret: TextView = itemView.findViewById(R.id.pret_input)
+        val cantitate: TextView = itemView.findViewById(R.id.cantitate_input)
+        var rez: TextView = itemView.findViewById(R.id.rezultat_input)
+        var rezTotal: TextView = itemView.findViewById(R.id.rezultat_acumulat_input)
 
     }
 }

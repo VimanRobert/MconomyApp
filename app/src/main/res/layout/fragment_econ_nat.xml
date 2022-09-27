@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".macrodir.EconNatFragment">
+    tools:context=".macrodir.EconNatFragment"
+    android:layout_marginStart="10sp"
+    android:layout_marginEnd="10sp"
+    android:layout_marginTop="80sp">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp">
     <TextView
         android:id="@+id/toptextview"
         android:layout_width="match_parent"
@@ -31,6 +38,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints=""
         app:layout_constraintTop_toBottomOf="@+id/toptextview" />
 
     <EditText
@@ -44,6 +52,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints=""
         app:layout_constraintTop_toBottomOf="@+id/exporturiid" />
 
     <EditText
@@ -57,7 +66,8 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/importuriid" />
+        app:layout_constraintTop_toBottomOf="@+id/importuriid"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/investitiiid"
@@ -70,6 +80,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints=""
         app:layout_constraintTop_toBottomOf="@+id/consumid" />
 
     <EditText
@@ -81,8 +92,10 @@
         android:layout_marginEnd="60dp"
         android:hint="@string/exporturi"
         android:inputType="numberDecimal"
+        android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints=""
         app:layout_constraintTop_toBottomOf="@+id/investitiiid" />
 
     <Button
@@ -90,9 +103,9 @@
         android:layout_width="240dp"
         android:layout_height="56dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="86dp"
-        android:backgroundTint="@android:color/system_accent1_400"
+        android:backgroundTint="@color/colorAccent"
         android:text="@string/calculeaza"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,6 +204,7 @@
         android:id="@+id/viewEconType"
         android:layout_width="287dp"
         android:layout_height="34dp"
+        android:layout_marginTop="60sp"
         android:layout_marginStart="73dp"
         android:layout_marginEnd="51dp"
         android:layout_marginBottom="21dp"
@@ -202,4 +216,5 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

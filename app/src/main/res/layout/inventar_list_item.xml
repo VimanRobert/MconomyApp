@@ -5,9 +5,11 @@
     android:layout_height="wrap_content"
     app:cardElevation="10sp"
     app:cardCornerRadius="10sp"
-    android:layout_marginTop="80sp"
+    android:layout_marginTop="20sp"
     android:layout_marginStart="15sp"
     android:layout_marginEnd="15sp"
+    android:id="@+id/date_produs"
+
     >
 
     <LinearLayout
@@ -28,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textColor="@color/black"
-                android:text="Produs:"
+                android:text="@string/produs"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/cantitateText"
@@ -109,6 +111,21 @@
             android:text="@string/_0_00" />
 
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginStart="280sp">
+
+        <Button
+            android:id="@+id/sterge_produs"
+            android:layout_width="90sp"
+            android:layout_height="wrap_content"
+            android:text="Sterge"
+            android:backgroundTint="@color/colorAccent"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
