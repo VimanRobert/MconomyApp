@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_microFragment_to_infoMicroFragment"
             app:destination="@id/infoMicroFragment" />
+        <action
+            android:id="@+id/action_microFragment_to_costDeOportunitateFragment"
+            app:destination="@id/costDeOportunitateFragment" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
@@ -104,6 +107,9 @@
         <action
             android:id="@+id/action_econNatFragment_to_macroFragment"
             app:destination="@id/macroFragment" />
+        <action
+            android:id="@+id/action_econNatFragment_to_exempleIndicatoriFragment"
+            app:destination="@id/exempleIndicatoriFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoMicroFragment"
@@ -140,5 +146,23 @@
         <action
             android:id="@+id/action_itemInventarFragment_to_blankFragment"
             app:destination="@id/blankFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exempleIndicatoriFragment"
+        android:name="com.example.mconomy.macrodir.ExempleIndicatoriFragment"
+        android:label="fragment_exemple_indicatori"
+        tools:layout="@layout/fragment_exemple_indicatori" >
+        <action
+            android:id="@+id/action_exempleIndicatoriFragment_to_econNatFragment"
+            app:destination="@id/econNatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/costDeOportunitateFragment"
+        android:name="com.example.mconomy.microdir.CostDeOportunitateFragment"
+        android:label="fragment_cost_de_oportunitate"
+        tools:layout="@layout/fragment_cost_de_oportunitate" >
+        <action
+            android:id="@+id/action_costDeOportunitateFragment_to_microFragment"
+            app:destination="@id/microFragment" />
     </fragment>
 </navigation>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_marginTop="80sp"
+    android:fillViewport="true"
+    tools:context=".macrodir.ExempleIndicatoriFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp">
+    <TextView
+        android:id="@+id/pib_title_def"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="10sp"
+        android:textSize="25sp"
+        android:text="@string/produsul_intern_brut_pib"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+        <TextView
+            android:id="@+id/pib_def"
+            android:layout_width="380dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="10sp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pib_title_def"
+            android:text="@string/este_suma_preturilor_finale_ale_tuturor_bunurilor_si_serviciilor_produse_de_o_tara_intr_o_anumita_perioada_de_obicei_un_an_utilizand_resurse_proprii"
+             />
+
+        <TextView
+            android:id="@+id/pnb_title_def"
+            android:layout_width="380dp"
+            android:layout_height="56dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pib_def"
+            android:text="@string/produsul_national_brut_pnb"
+            />
+
+        <TextView
+            android:id="@+id/pnb_def"
+            android:layout_width="380dp"
+            android:layout_height="220dp"
+            android:textSize="18sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pnb_title_def"
+            android:text="@string/imagina_i_v_o_companie_american_care_construie_te_o_fabric_de_tricouri_n_vietnam_n_acest_caz_ceea_ce_produce_aceast_fabric_va_fi_num_rat_n_pnb_sua_dar_nu_i_n_pnb_vietnam_deoarece_de_i_acesta_din_urm_este_locul_de_produc_ie_compania_este_sua_pe_de_alt_parte_produc_ia_acestei_fabrici_va_fi_luat_n_calcul_n_pib_ul_vietnamului_dar_nu_n_pib_ul_statelor_unite"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

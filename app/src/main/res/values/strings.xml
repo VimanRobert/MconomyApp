@@ -62,4 +62,12 @@
     <string name="rezultat_acumulat">Rezultat Acumulat :</string>
     <string name="descriere">descriere</string>
     <string name="produs">Produs:</string>
+    <string name="warning_text">** Campurile ce nu vor avea valori vor fi lasate goale (nu este nevoie sa adaugati valoarea 0)</string>
+    <string name="imagina_i_v_o_companie_american_care_construie_te_o_fabric_de_tricouri_n_vietnam_n_acest_caz_ceea_ce_produce_aceast_fabric_va_fi_num_rat_n_pnb_sua_dar_nu_i_n_pnb_vietnam_deoarece_de_i_acesta_din_urm_este_locul_de_produc_ie_compania_este_sua_pe_de_alt_parte_produc_ia_acestei_fabrici_va_fi_luat_n_calcul_n_pib_ul_vietnamului_dar_nu_n_pib_ul_statelor_unite">Imaginați-vă o companie americană care construiește o fabrică de tricouri în Vietnam. În acest caz, ceea ce produce această fabrică va fi numărat în PNB SUA, dar nu și în PNB Vietnam, deoarece, deși acesta din urmă este locul de producție, compania este SUA. Pe de altă parte, producția acestei fabrici va fi luată în calcul în PIB-ul Vietnamului, dar nu în PIB-ul Statelor Unite.</string>
+    <string name="produsul_national_brut_pnb"><li>Produsul national brut (PNB):</li></string>
+    <string name="este_suma_preturilor_finale_ale_tuturor_bunurilor_si_serviciilor_produse_de_o_tara_intr_o_anumita_perioada_de_obicei_un_an_utilizand_resurse_proprii">Este suma preturilor finale ale tuturor bunurilor si serviciilor produse de o tara intr-o anumita perioada (de obicei un an) utilizand resurse proprii.</string>
+    <string name="produsul_intern_brut_pib"><li>Produsul intern brut (PIB):</li></string>
+    <string name="vezi_ce_semnifica_acesti_indicatori">Vezi ce semnifica acesti indicatori</string>
+    <string name="venituri_rezidenti_din_strainatate">Venituri rezidenti din strainatate</string>
+    <string name="venituri_rezidenti_straini">Venituri rezidenti straini</string>
 </resources>

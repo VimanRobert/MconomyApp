@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentEconNatBinding
 
@@ -48,21 +49,32 @@ class EconNatFragment : Fragment() {
         var PGB = binding.pgbInput.text
 
  */
+
+
+        binding.toExIndicatori.setOnClickListener {
+            findNavController().navigate(R.id.action_econNatFragment_to_exempleIndicatoriFragment)
+        }
+
+
+
         binding.calculeazaP.setOnClickListener {
             isAllFieldsChecked = CheckAllFields()
             if (isAllFieldsChecked) {
-                if (binding.cheltuieliGuvid.text == null &&
+                if (binding.cheltuieliGuvid.text!!.isEmpty() &&
                     binding.exporturiid.text != null &&
                     binding.importuriid.text != null &&
                     binding.investitiiid.text != null &&
                     binding.consumid.text != null ) {
-                    binding.viewEconType.text = "** Economie privata"
                     binding.pibInput.text = (binding.consumid.text.toString().toDouble() + binding.investitiiid.text.toString().toDouble() +
                             (binding.exporturiid.text.toString().toDouble() - binding.importuriid.text.toString().toDouble())).toString()
 
-                }else if (binding.exporturiid.text == null && binding.importuriid.text == null) {
-                    binding.viewEconType.text = "** Economie inchisa"
-                    binding.pibInput.text = (binding.consumid.text.toString().toDouble() + binding.investitiiid.text.toString().toDouble()).toString()
+                    binding.pnbInput.text = (binding.pibInput.text.toString().toDouble() + binding.venitRezDinStrainatate.text.toString().toDouble() - binding.venitRezStraini.text.toString().toDouble()).toString()
+                    binding.viewEconType.text = "** Economie privata"
+
+                }else if (binding.exporturiid.text!!.isEmpty() && binding.importuriid.text!!.isEmpty()) {
+                    binding.viewEconType.text = "** Economie inchisa (PIB = PNB)"
+                    binding.pibInput.text = (binding.consumid.text.toString().toDouble() + binding.investitiiid.text.toString().toDouble() + binding.cheltuieliGuvid.text.toString().toDouble()).toString()
+                    binding.pnbInput.text = binding.pibInput.text
                 }else if(binding.exporturiid.text != null &&
                          binding.importuriid.text != null &&
                          binding.investitiiid.text != null &&
@@ -70,6 +82,8 @@ class EconNatFragment : Fragment() {
                          binding.cheltuieliGuvid.text != null){
                     binding.pibInput.text = (binding.consumid.text.toString().toDouble() + binding.investitiiid.text.toString().toDouble() + binding.cheltuieliGuvid.text.toString().toDouble() +
                             (binding.exporturiid.text.toString().toDouble() - binding.importuriid.text.toString().toDouble())).toString()
+
+                    binding.pnbInput.text = (binding.pibInput.text.toString().toDouble() + binding.venitRezDinStrainatate.text.toString().toDouble() - binding.venitRezStraini.text.toString().toDouble()).toString()
                     binding.viewEconType.text = "** Economie deschisa"
                 }
             }
@@ -81,6 +95,11 @@ class EconNatFragment : Fragment() {
             return false
         }
         if (binding.investitiiid.length() == 0) {
+            binding.investitiiid.error = "Camp obligatoriu !"
+            return false
+        }
+        if (binding.consumid.length() == 0 || binding.investitiiid.length() == 0){
+            binding.consumid.error = "Camp obligatoriu !"
             binding.investitiiid.error = "Camp obligatoriu !"
             return false
         }

@@ -48,6 +48,10 @@ class MicroFragment : Fragment() {
             findNavController().navigate(action_microFragment_to_infoMicroFragment)
         }
 
+        binding.toCostOportunitate.setOnClickListener {
+            findNavController().navigate(R.id.action_microFragment_to_costDeOportunitateFragment)
+        }
+
         val topBarText = activity?.findViewById<TextView>(topbartext)
         topBarText?.text = "Microeconomie"
     }
