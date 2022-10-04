@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="100sp"
+    android:fillViewport="true"
+    tools:context=".macrodir.ImprumutBancarFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/suma_imprumurata_title"
+            android:layout_width="300sp"
+            android:layout_height="70sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:autofillHints=""
+            android:outlineAmbientShadowColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/suma_imprumurata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20sp"
+                android:backgroundTint="@color/white"
+                android:hint="@string/suma_imprumutata"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.078"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteY="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TableLayout
+            android:id="@+id/tabel_amortizare_imprumut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="185dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rata_pick">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@color/teal_200">
+
+                <TextView
+                    android:layout_height="50sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/amortizarea_actiunii"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:background="@color/teal_200">
+
+                <TextView
+                    android:id="@+id/tip_perioada"
+                    android:layout_width="100dp"
+                    android:layout_height="67dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text="@string/nr_luna_an_sem_trim"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_height="67dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/rata"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_height="67dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/suma"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </TableRow>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_ramburs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20sp"
+                app:layoutManager="LinearLayoutManager"
+                tools:context=".microdir.ItemInventarFragment"
+                tools:listitem="@layout/table_imprumuturi_item" />
+
+
+        </TableLayout>
+
+        <NumberPicker
+
+            android:id="@+id/rata_pick"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/suma_imprumurata_title" />
+
+        <TextView
+            android:id="@+id/rata_text"
+            android:layout_width="206dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20sp"
+            android:gravity="center"
+            android:text="@string/selecteaza_rata_dobanzii"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/rata_pick"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/suma_imprumurata_title" />
+
+        <TextView
+            android:id="@+id/tip_perioada_text"
+            android:layout_width="200dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/selecteaza_tipul_perioadei_imprumutului"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/tip_perioada_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rata_text" />
+
+        <EditText
+            android:id="@+id/tip_perioada_input"
+            android:layout_width="142dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="40dp"
+            android:autofillHints=""
+            android:hint="@string/lunar"
+            android:inputType="textAutoComplete"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tip_perioada_text"
+            app:layout_constraintTop_toBottomOf="@+id/rata_pick" />
+
+        <Button
+            android:id="@+id/calculeaza_amortizare_imprumut"
+            android:layout_width="142dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="134dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="135dp"
+            android:text="@string/calculeaza"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tip_perioada_text"
+            tools:layout_editor_absoluteY="314dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

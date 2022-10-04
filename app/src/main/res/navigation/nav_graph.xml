@@ -48,9 +48,6 @@
             android:id="@+id/action_microFragment_to_firstInFragment"
             app:destination="@id/firstInFragment" />
         <action
-            android:id="@+id/action_microFragment_to_blankFragment"
-            app:destination="@id/blankFragment" />
-        <action
             android:id="@+id/action_microFragment_to_rentabilitateFragment"
             app:destination="@id/rentabilitateFragment" />
         <action
@@ -59,6 +56,9 @@
         <action
             android:id="@+id/action_microFragment_to_costDeOportunitateFragment"
             app:destination="@id/costDeOportunitateFragment" />
+        <action
+            android:id="@+id/action_microFragment_to_inventarMainPageFragment"
+            app:destination="@id/inventarMainPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
@@ -66,11 +66,8 @@
         android:label="fragment_inventar"
         tools:layout="@layout/fragment_inventar" >
         <action
-            android:id="@+id/action_blankFragment_to_microFragment"
-            app:destination="@id/microFragment" />
-        <action
-            android:id="@+id/action_blankFragment_to_itemInventarFragment"
-            app:destination="@id/itemInventarFragment" />
+            android:id="@+id/action_blankFragment_to_inventarMainPageFragment"
+            app:destination="@id/inventarMainPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/macroFragment"
@@ -137,15 +134,19 @@
         <action
             android:id="@+id/action_bancaFragment_to_macroFragment"
             app:destination="@id/macroFragment" />
+        <action
+            android:id="@+id/action_bancaFragment_to_imprumutBancarFragment"
+            app:destination="@id/imprumutBancarFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemInventarFragment"
         android:name="com.example.mconomy.microdir.ItemInventarFragment"
         android:label="fragment_item_list"
         tools:layout="@layout/fragment_item_list" >
+
         <action
-            android:id="@+id/action_itemInventarFragment_to_blankFragment"
-            app:destination="@id/blankFragment" />
+            android:id="@+id/action_itemInventarFragment_to_inventarSessionItemsFragment"
+            app:destination="@id/inventarSessionItemsFragment" />
     </fragment>
     <fragment
         android:id="@+id/exempleIndicatoriFragment"
@@ -164,5 +165,42 @@
         <action
             android:id="@+id/action_costDeOportunitateFragment_to_microFragment"
             app:destination="@id/microFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inventarMainPageFragment"
+        android:name="com.example.mconomy.microdir.InventarMainPageFragment"
+        android:label="fragment_inventar_main_page"
+        tools:layout="@layout/fragment_inventar_main_page" >
+
+        <action
+            android:id="@+id/action_inventarMainPageFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+        <action
+            android:id="@+id/action_inventarMainPageFragment_to_microFragment"
+            app:destination="@id/microFragment" />
+        <action
+            android:id="@+id/action_inventarMainPageFragment_to_inventarSessionItemsFragment"
+            app:destination="@id/inventarSessionItemsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inventarSessionItemsFragment"
+        android:name="com.example.mconomy.microdir.InventarSessionItemsFragment"
+        android:label="fragment_inventar_session_items"
+        tools:layout="@layout/fragment_inventar_session_items" >
+        <action
+            android:id="@+id/action_inventarSessionItemsFragment_to_inventarMainPageFragment"
+            app:destination="@id/inventarMainPageFragment" />
+        <action
+            android:id="@+id/action_inventarSessionItemsFragment_to_itemInventarFragment"
+            app:destination="@id/itemInventarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imprumutBancarFragment"
+        android:name="com.example.mconomy.macrodir.ImprumutBancarFragment"
+        android:label="fragment_imprumut_bancar"
+        tools:layout="@layout/fragment_imprumut_bancar" >
+        <action
+            android:id="@+id/action_imprumutBancarFragment_to_bancaFragment"
+            app:destination="@id/bancaFragment" />
     </fragment>
 </navigation>

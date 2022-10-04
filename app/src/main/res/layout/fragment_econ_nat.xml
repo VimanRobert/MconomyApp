@@ -57,6 +57,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/consumid"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""
@@ -82,6 +83,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/investitiiid"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""
@@ -107,6 +109,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/exporturiid"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""
@@ -132,6 +135,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/importuriid"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""
@@ -157,6 +161,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cheltuieliGuvid"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""
@@ -182,6 +187,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/venit_rez_din_strainatate"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""
@@ -207,6 +213,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/venit_rez_straini"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""

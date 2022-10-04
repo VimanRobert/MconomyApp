@@ -2,25 +2,16 @@ package com.example.mconomy.microdir
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mconomy.R
-import com.example.mconomy.databinding.FragmentInventarBinding
 import com.example.mconomy.databinding.FragmentItemListBinding
-import com.example.mconomy.microdir.placeholder.PlaceholderContent
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.inventar_list_item.*
 
 
 class ItemInventarFragment : Fragment() {

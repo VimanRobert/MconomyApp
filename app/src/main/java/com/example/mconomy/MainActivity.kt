@@ -1,6 +1,10 @@
 package com.example.mconomy
 
 
+//    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
+//    GITHUB TOKEN
+
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,14 +28,14 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val view = binding.root
         setContentView(view)
-
+        //hideSystemUI()
         supportActionBar?.hide()
 
-        binding.topBar.setOnMenuItemClickListener{
+        binding.topBar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.action_logout-> {
+                R.id.action_logout -> {
                     auth.signOut()
-                    val intent = Intent(this,MainActivity::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     return@setOnMenuItemClickListener true
                 }
@@ -40,9 +44,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+
     }
 
-    private companion object{
+    private companion object {
         private const val TAG = "MainActivity"
     }
 
@@ -52,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.action_logout){
+        if (item.itemId == R.id.action_logout) {
             Log.i(TAG, "Logout")
             auth.signOut()
             val logoutIntent = Intent(this, MainActivity::class.java)

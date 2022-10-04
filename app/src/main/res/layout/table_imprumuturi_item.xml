@@ -1,0 +1,36 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tip_perioada_row"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="@string/_0"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rata_row"
+        android:layout_width="132dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="@string/_0"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/tip_perioada_row"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/suma_row"
+        android:layout_width="200sp"
+        android:layout_height="60sp"
+        android:gravity="center"
+        android:text="@string/_0_00"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/rata_row"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

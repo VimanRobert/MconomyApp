@@ -17,22 +17,18 @@ import kotlinx.android.synthetic.main.fragment_login.*
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    lateinit var signInEmail: String
-    lateinit var signInPassword: String
-    lateinit var signInInputsArray: Array<EditText>
+    private lateinit var signInEmail: String
+    private lateinit var signInPassword: String
+    private lateinit var signInInputsArray: Array<EditText>
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-        auth  = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         return binding.root
     }
@@ -57,12 +53,12 @@ class LoginFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if (auth.currentUser!=null){
+        if (auth.currentUser != null) {
             findNavController().navigate(R.id.action_loginFragment_to_firstInFragment)
         }
     }
 
-    private fun login(){
+    private fun login() {
 
         signInEmail = emailLOG.text.toString().trim()
         signInPassword = passwordLOG.text.toString().trim()

@@ -1,28 +1,18 @@
 package com.example.mconomy
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.findNavController
 import com.example.mconomy.FirebaseUtils.FirebaseUtils.firebaseAuth
-import com.example.mconomy.FirebaseUtils.FirebaseUtils.firebaseUser
-import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentRegisterBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.jakewharton.rxbinding2.widget.RxTextView
-import io.reactivex.Observable
+//import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
@@ -30,11 +20,11 @@ import kotlinx.android.synthetic.main.fragment_register.*
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
-    private lateinit var auth: FirebaseAuth
+    //private lateinit var auth: FirebaseAuth
     private lateinit var toast: Toast
-    lateinit var userEmail: String
-    lateinit var userPassword: String
-    lateinit var createAccountInputsArray: Array<EditText>
+    private lateinit var userEmail: String
+    private lateinit var userPassword: String
+    private lateinit var createAccountInputsArray: Array<EditText>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

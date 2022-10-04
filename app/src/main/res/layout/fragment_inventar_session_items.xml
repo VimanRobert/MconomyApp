@@ -2,12 +2,11 @@
 <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list_inventar"
-    android:name="com.example.mconomy.microdir.ItemInventarFragment"
+    android:id="@+id/session_recyclerview"
+    android:name="com.example.mconomy.microdir.FragmentInventarSessionItems"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="80sp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".microdir.ItemInventarFragment"
-    tools:listitem="@layout/inventar_list_item"
-    />
+    tools:context=".microdir.InventarSessionItemsFragment"
+    tools:listitem="@layout/inventar_sessions" />

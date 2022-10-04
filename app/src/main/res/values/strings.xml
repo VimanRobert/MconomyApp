@@ -70,4 +70,16 @@
     <string name="vezi_ce_semnifica_acesti_indicatori">Vezi ce semnifica acesti indicatori</string>
     <string name="venituri_rezidenti_din_strainatate">Venituri rezidenti din strainatate</string>
     <string name="venituri_rezidenti_straini">Venituri rezidenti straini</string>
+    <string name="inventar_nou">Inventar nou</string>
+    <string name="sterge">Sterge</string>
+    <string name="_0">0</string>
+    <string name="scrie_aici_numarul_sesiunii_facturii">Scrie aici numarul sesiunii/ facturii</string>
+    <string name="selecteaza_rata_dobanzii">Selecteaza rata dobanzii (%) :</string>
+    <string name="suma_imprumutata">Suma imprumutata</string>
+    <string name="selecteaza_tipul_perioadei_imprumutului">Selecteaza tipul perioadei imprumutului</string>
+    <string name="lunar">lunar</string>
+    <string name="rata">Rata</string>
+    <string name="nr_luna_an_sem_trim">Nr luna/an/sem/trim</string>
+    <string name="suma">Suma</string>
+    <string name="amortizarea_actiunii">Amortizarea actiunii</string>
 </resources>

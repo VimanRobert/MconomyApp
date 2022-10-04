@@ -1,5 +1,6 @@
 package com.example.mconomy
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,10 +16,6 @@ class MicroFragment : Fragment() {
 
     private  lateinit var binding : FragmentMicroBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,11 +25,12 @@ class MicroFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.inventar.setOnClickListener{
-            findNavController().navigate(action_microFragment_to_blankFragment)
+            findNavController().navigate(action_microFragment_to_inventarMainPageFragment)
         }
 
 
@@ -49,7 +47,7 @@ class MicroFragment : Fragment() {
         }
 
         binding.toCostOportunitate.setOnClickListener {
-            findNavController().navigate(R.id.action_microFragment_to_costDeOportunitateFragment)
+            findNavController().navigate(action_microFragment_to_costDeOportunitateFragment)
         }
 
         val topBarText = activity?.findViewById<TextView>(topbartext)

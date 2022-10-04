@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".microdir.CostDeOportunitateFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".microdir.CostDeOportunitateFragment"
+    android:layout_marginStart="10sp"
+    android:layout_marginEnd="10sp"
+    android:layout_marginTop="80sp"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="0dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/variante_text"
+            android:layout_width="250sp"
+            android:textSize="20sp"
+            android:layout_height="50sp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Introdu nr de variante"/>
+
+        <NumberPicker
+            android:id="@+id/variante_pick"
+            android:layout_width="135dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@id/variante_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sortimente_text"
+            android:layout_width="250sp"
+            android:textSize="20sp"
+            android:layout_height="50sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/variante_text"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Introdu nr de sortimente"/>
+
+        <NumberPicker
+            android:id="@+id/sortimente_pick"
+            android:layout_width="135dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@id/sortimente_text"
+            app:layout_constraintTop_toBottomOf="@+id/variante_pick" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

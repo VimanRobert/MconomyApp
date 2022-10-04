@@ -8,9 +8,7 @@
     android:layout_marginTop="20sp"
     android:layout_marginStart="15sp"
     android:layout_marginEnd="15sp"
-    android:id="@+id/date_produs"
-
-    >
+    android:id="@+id/date_produs">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -123,7 +121,7 @@
             android:id="@+id/sterge_produs"
             android:layout_width="90sp"
             android:layout_height="wrap_content"
-            android:text="Sterge"
+            android:text="@string/sterge"
             android:backgroundTint="@color/colorAccent"
             android:textAllCaps="false"/>
     </LinearLayout>

@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mconomy.R
 
-class InventarAdapter(): RecyclerView.Adapter<InventarAdapter.InventarViewHolder>() {
+class InventarAdapter : RecyclerView.Adapter<InventarAdapter.InventarViewHolder>() {
 
     private val invList = ArrayList<InventarData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InventarViewHolder {
-        val itemInv = LayoutInflater.from(parent.context).inflate(R.layout.inventar_list_item, parent, false)
+        val itemInv =
+            LayoutInflater.from(parent.context).inflate(R.layout.inventar_list_item, parent, false)
         return InventarViewHolder(itemInv)
     }
 
@@ -32,11 +33,12 @@ class InventarAdapter(): RecyclerView.Adapter<InventarAdapter.InventarViewHolder
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateInventarList(invList : List<InventarData>){
+    fun updateInventarList(invList: List<InventarData>) {
         this.invList.clear()
         this.invList.addAll(invList)
         notifyDataSetChanged()
     }
+
 
     class InventarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
