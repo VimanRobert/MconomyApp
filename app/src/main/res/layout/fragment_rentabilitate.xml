@@ -1,42 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="100dp"
     tools:context=".microdir.RentabilitateFragment">
 
 
-    <TextView
-        android:id="@+id/titlu_rentabilitate"
-        android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginTop="90dp"
-        android:gravity="center"
-        android:text="Rentabilitate"
-        android:textColor="@android:color/system_accent1_700"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="s" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/rent_to_macro"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="468dp"
-        android:layout_marginEnd="145dp"
-        android:backgroundTint="@android:color/holo_purple"
-        android:text="@string/inapoi"
-        android:textAllCaps="false"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titlu_rentabilitate" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/top_text_rentabilitate"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="@string/intro_rentabilitate"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/indicatii_text_rentabilitate"
+            android:layout_width="392dp"
+            android:layout_height="150dp"
+            android:text="@string/aici_vor_aparea_rezultatele_in_urma_calculelor_executate"
+            android:textColor="@color/purple_500"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_text_rentabilitate" />
+
+        <Button
+            android:id="@+id/to_rent_chart"
+            android:text="Vizualizeaza stiatistica"
+            android:background="@color/teal_700"
+            app:layout_constraintTop_toBottomOf="@+id/indicatii_text_rentabilitate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:textAllCaps="false"/>
+
+
+        <EditText
+            android:id="@+id/capitaluri_input"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="34dp"
+            android:autofillHints=""
+            android:gravity="center_vertical"
+            android:hint="@string/capitaluri_proprii"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/to_rent_chart" />
+
+        <EditText
+            android:id="@+id/active_totale_input"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="40dp"
+            android:autofillHints=""
+            android:hint="@string/active_totale"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profit_net_input" />
+
+        <ImageView
+            android:id="@+id/imageView_profit_net"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="44dp"
+            android:src="@android:drawable/ic_menu_info_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_capitaluri"
+            app:tint="@color/teal_700"/>
+
+        <ImageView
+            android:id="@+id/imageView_dobanda"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="44dp"
+            android:src="@android:drawable/ic_menu_info_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_active_totale"
+            app:tint="@color/teal_700"/>
+
+        <EditText
+            android:id="@+id/datorii_input"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="40dp"
+            android:hint="@string/datorii"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dobanda_input"
+            android:autofillHints="" />
+
+        <ImageView
+            android:id="@+id/imageView_datorii"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="44dp"
+            android:src="@android:drawable/ic_menu_info_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_dobanda"
+            app:tint="@color/teal_700"/>
+
+        <EditText
+            android:id="@+id/profit_net_input"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="44dp"
+            android:autofillHints=""
+            android:hint="@string/profit_net"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/capitaluri_input" />
+
+        <ImageView
+            android:id="@+id/imageView_active_totale"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="44dp"
+            android:src="@android:drawable/ic_menu_info_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_profit_net"
+            app:tint="@color/teal_700"/>
+
+        <EditText
+            android:id="@+id/dobanda_input"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="40dp"
+            android:autofillHints=""
+            android:hint="@string/dobanda"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/active_totale_input" />
+
+        <ImageView
+            android:id="@+id/imageView_capitaluri"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="44dp"
+            android:src="@android:drawable/ic_menu_info_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/to_rent_chart"
+            app:tint="@color/teal_700" />
+
+        <Button
+            android:id="@+id/calcul_rentabilitate"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/teal_700"
+            android:backgroundTint="#589ACF"
+            android:text="@string/calculeaza"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datorii_input" />
+        <TextView
+            android:id="@+id/rent_financiara_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:textSize="15dp"
+            android:text="Rentabilitatea financiara "
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calcul_rentabilitate"/>
+        <TextView
+            android:id="@+id/rent_actiuni_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="15dp"
+            android:text="Rentabilitatea actiunilor "
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rent_financiara_text"/>
+        <TextView
+            android:id="@+id/rata_dobanzii_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="15dp"
+            android:text="Rata dobanzii "
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rent_actiuni_text"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

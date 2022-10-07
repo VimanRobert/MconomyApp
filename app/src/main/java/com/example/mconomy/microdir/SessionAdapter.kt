@@ -31,10 +31,7 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
 
     }
 
-    override fun getItemCount(): Int {
-        return invList.size
-    }
-
+    override fun getItemCount() = invList.size
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateInventarList(invList: List<SessionData>) {

@@ -1,6 +1,7 @@
 package com.example.mconomy
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,7 +48,21 @@ class MicroFragment : Fragment() {
         }
 
         binding.toCostOportunitate.setOnClickListener {
-            findNavController().navigate(action_microFragment_to_costDeOportunitateFragment)
+
+            val builder = AlertDialog.Builder(context)
+            builder.setMessage("Aceasta pagina se afla in mentenanta.\n" +
+                    " Incearca mai tarziu.")
+
+            builder.setTitle("In mentenanta ://")
+            builder.setCancelable(false)
+
+
+            builder.setNeutralButton("Ok") {
+                    dialog, which -> dialog.cancel()
+            }
+
+            val alertDialog = builder.create()
+            alertDialog.show()
         }
 
         val topBarText = activity?.findViewById<TextView>(topbartext)

@@ -72,6 +72,15 @@ class ImprumutBancarFragment : Fragment() {
                         rambursList.add(data)
                     }
 
+                    val copy = rambursList.last().copy(
+                        perioada = 0,
+                        rata = 0,
+                        suma = 0.0
+                    )
+
+                    rambursList.removeLast()
+                    rambursList.add(copy)
+
                     withContext(Dispatchers.Main) {
                         adapter.updateRambursList(rambursList)
                     }

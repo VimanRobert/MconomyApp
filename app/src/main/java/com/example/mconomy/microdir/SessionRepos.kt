@@ -38,7 +38,7 @@ class SessionRepos {
 
 
                 }catch(exc: java.lang.Exception){
-                    Log.ERROR
+                    Log.i("A aparut o eroare in procesul de inventariere", exc.message.toString())
                 }
             }
 

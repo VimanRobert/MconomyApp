@@ -33,14 +33,14 @@
         app:layout_constraintTop_toBottomOf="@+id/banca" />
 
     <Button
-        android:id="@+id/asigurari"
+        android:id="@+id/actiuni"
         android:layout_width="264dp"
         android:layout_height="67dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="47dp"
         android:layout_marginEnd="73dp"
         android:backgroundTint="@color/teal_700"
-        android:text="@string/asigurari"
+        android:text="@string/actiuni"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/econNat" />

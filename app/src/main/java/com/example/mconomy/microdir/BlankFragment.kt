@@ -1,6 +1,7 @@
 package com.example.mconomy.microdir
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class BlankFragment : Fragment() {
 
@@ -44,8 +47,12 @@ class BlankFragment : Fragment() {
 
         val rezCalc = view.findViewById<TextView>(R.id.rezInitial)
         val rezTotal = view.findViewById<TextView>(R.id.rezTotal)
+        val sesiune = view.findViewById<EditText>(R.id.nr_sesiune)
         var isAllFieldsChecked: Boolean
 
+        val currentDate = LocalDateTime.now()
+        val formatDate = DateTimeFormatter.ofPattern("HH:mm_dd-MM-yy")
+        val formattedData = currentDate.format(formatDate)
 
         binding.calcul.setOnClickListener {
             isAllFieldsChecked = checkAllFields()
@@ -71,13 +78,14 @@ class BlankFragment : Fragment() {
                 val cantitateB = binding.cantitateID.text.toString().toDouble()
                 val rezcalculB = binding.rezInitial.text.toString().toDouble()
                 val reztotalB = binding.rezTotal.text.toString().toDouble()
+                val sesiuneB = binding.nrSesiune.text.toString().toInt()
 
-                val numarSesiune = binding.nrSesiune.text.toString()
+
                 //if (uid.isNotEmpty()) {
 
 
                 //var inv_number = 0
-                database = Firebase.database.getReference("Inventar/Sesiunea_$numarSesiune")
+                database = Firebase.database.getReference("Inventar/Sesiunea_$sesiuneB-$formattedData")
 
 
                 val inventar = InventarData(produsB, pretB, cantitateB, rezcalculB, reztotalB)
@@ -101,10 +109,45 @@ class BlankFragment : Fragment() {
 
         binding.saveInventar.setOnClickListener {
 
+
+            val builder = AlertDialog.Builder(context)
+            builder.setMessage("Doriti sa salvati sesiunea sesiunea cu data $formattedData ?")
+
+            builder.setTitle("Salvare sesiune de inventar")
+            builder.setCancelable(true)
+
+
+            builder.setPositiveButton("Confirma") { dialog, _ ->
+                dialog.apply {
+                    database = Firebase.database.getReference("Inventar/Sesiunea_$sesiune-$formattedData")
+                    Toast.makeText(
+                        context,
+                        "Sesiunea a fost salvata !\n$formattedData",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    produs.text = null
+                    pret.text = null
+                    cantitate.text = null
+                    rezCalc.text = null
+                    rezTotal.text = null
+                    sesiune.text = null
+                }
+            }
+            builder.setNegativeButton("Anuleaza") { dialog, _ ->
+                dialog.cancel()
+            }
+
+            val alertDialog = builder.create()
+            alertDialog.show()
+
         }
     }
 
     private fun checkAllFields(): Boolean {
+        if (binding.nrSesiune.length() == 0) {
+            binding.nrSesiune.error = "Camp obligatoriu !"
+            return false
+        }
         if (binding.numeProdusID.length() == 0) {
             binding.numeProdusID.error = "Camp obligatoriu !"
             return false

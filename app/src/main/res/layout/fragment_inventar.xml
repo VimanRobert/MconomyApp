@@ -19,6 +19,7 @@
             android:layout_width="250sp"
             android:layout_height="50sp"
             android:textSize="15sp"
+            android:inputType="number"
             android:layout_marginStart="24dp"
             android:layout_marginTop="20sp"
             android:hint="@string/scrie_aici_numarul_sesiunii_facturii"

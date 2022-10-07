@@ -54,9 +54,6 @@
             android:id="@+id/action_microFragment_to_infoMicroFragment"
             app:destination="@id/infoMicroFragment" />
         <action
-            android:id="@+id/action_microFragment_to_costDeOportunitateFragment"
-            app:destination="@id/costDeOportunitateFragment" />
-        <action
             android:id="@+id/action_microFragment_to_inventarMainPageFragment"
             app:destination="@id/inventarMainPageFragment" />
     </fragment>
@@ -86,6 +83,9 @@
         <action
             android:id="@+id/action_macroFragment_to_bancaFragment"
             app:destination="@id/bancaFragment" />
+        <action
+            android:id="@+id/action_macroFragment_to_actiuniFragment"
+            app:destination="@id/actiuniFragment" />
     </fragment>
     <fragment
         android:id="@+id/rentabilitateFragment"
@@ -95,6 +95,9 @@
         <action
             android:id="@+id/action_rentabilitateFragment_to_microFragment"
             app:destination="@id/microFragment" />
+        <action
+            android:id="@+id/action_rentabilitateFragment_to_statisticaRentabilitateFragment"
+            app:destination="@id/statisticaRentabilitateFragment" />
     </fragment>
     <fragment
         android:id="@+id/econNatFragment"
@@ -158,15 +161,6 @@
             app:destination="@id/econNatFragment" />
     </fragment>
     <fragment
-        android:id="@+id/costDeOportunitateFragment"
-        android:name="com.example.mconomy.microdir.CostDeOportunitateFragment"
-        android:label="fragment_cost_de_oportunitate"
-        tools:layout="@layout/fragment_cost_de_oportunitate" >
-        <action
-            android:id="@+id/action_costDeOportunitateFragment_to_microFragment"
-            app:destination="@id/microFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/inventarMainPageFragment"
         android:name="com.example.mconomy.microdir.InventarMainPageFragment"
         android:label="fragment_inventar_main_page"
@@ -202,5 +196,23 @@
         <action
             android:id="@+id/action_imprumutBancarFragment_to_bancaFragment"
             app:destination="@id/bancaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticaRentabilitateFragment"
+        android:name="com.example.mconomy.microdir.StatisticaRentabilitateFragment"
+        android:label="fragment_statistica_rentabilitate"
+        tools:layout="@layout/fragment_statistica_rentabilitate" >
+        <action
+            android:id="@+id/action_statisticaRentabilitateFragment_to_rentabilitateFragment"
+            app:destination="@id/rentabilitateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actiuniFragment"
+        android:name="com.example.mconomy.macrodir.ActiuniFragment"
+        android:label="fragment_actiuni"
+        tools:layout="@layout/fragment_actiuni" >
+        <action
+            android:id="@+id/action_actiuniFragment_to_macroFragment"
+            app:destination="@id/macroFragment" />
     </fragment>
 </navigation>

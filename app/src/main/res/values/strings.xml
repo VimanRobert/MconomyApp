@@ -22,7 +22,7 @@
     <string name="_0_00">0.00</string>
     <string name="inregistrare">Inregistrare</string>
     <string name="confirati_parola">Confirati parola</string>
-    <string name="asigurari">Asigurari</string>
+    <string name="actiuni">Actiuni</string>
     <string name="economii_nationale">Economii nationale</string>
     <string name="deconectare">Deconectare</string>
     <string name="salveaza_lista_si_incepe_o_sesiune_noua">Salveaza lista si incepe o sesiune noua</string>
@@ -78,8 +78,19 @@
     <string name="suma_imprumutata">Suma imprumutata</string>
     <string name="selecteaza_tipul_perioadei_imprumutului">Selecteaza tipul perioadei imprumutului</string>
     <string name="lunar">lunar</string>
-    <string name="rata">Rata</string>
+    <string name="rata">Rata dobanzii</string>
     <string name="nr_luna_an_sem_trim">Nr luna/an/sem/trim</string>
     <string name="suma">Suma</string>
     <string name="amortizarea_actiunii">Amortizarea actiunii</string>
+    <string name="introdu_nr_de_variante">Introdu nr de variante :</string>
+    <string name="introdu_nr_de_sortimente">Introdu nr de sortimente :</string>
+    <string name="intro_rentabilitate">Ratele de marjă se determină ca raport între diferite marje și cifra de afaceri (veniturile din exploatare care au generat aceste marje). Ele se mai numesc și rate de rentabilitate comercială.</string>
+    <string name="capitaluri_proprii">Capitaluri proprii</string>
+    <string name="profit_net">Profit net</string>
+    <string name="active_totale">Active totale</string>
+    <string name="dobanda">Dobanda</string>
+    <string name="datorii">Datorii</string>
+    <string name="aici_vor_aparea_rezultatele_in_urma_calculelor_executate">Aici vor aparea rezultatele in urma calculelor executate</string>
+    <string name="fluxul_pretului_pe_3_zile">fluxul pretului pe 3 zile</string>
+    <string name="chart_actiuni">Chart actiuni</string>
 </resources>
