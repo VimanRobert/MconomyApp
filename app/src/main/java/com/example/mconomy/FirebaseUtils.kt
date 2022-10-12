@@ -8,7 +8,6 @@ import com.google.firebase.messaging.RemoteMessage
 class FirebaseUtils : FirebaseMessagingService() {
     object FirebaseUtils {
         val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-        //val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
     }
 
 

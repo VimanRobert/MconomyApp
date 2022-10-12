@@ -29,6 +29,9 @@ class RentabilitateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var isAllFieldsChecked: Boolean
+
+
+
         // variabile de calcul
 /*
         val profitNet: Double = binding.profitNetInput.text.toString().toDouble()
@@ -52,7 +55,15 @@ class RentabilitateFragment : Fragment() {
  */
 
         binding.toRentChart.setOnClickListener {
-            findNavController().navigate(R.id.action_rentabilitateFragment_to_statisticaRentabilitateFragment)
+            val bundle = Bundle()
+            bundle.putFloat("keyRentFin", binding.rentFinanciaraText.text.toString().toFloat())
+            bundle.putFloat("keyRentAct", binding.rentActiuniText.text.toString().toFloat())
+            bundle.putFloat("keyRataDob", binding.rataDobanziiText.text.toString().toFloat())
+            findNavController().navigate(R.id.action_rentabilitateFragment_to_statisticaRentabilitateFragment, bundle)
+
+
+            // Thanks Razvan Ursu who helped me doing this implementation
+
         }
 
         binding.imageViewCapitaluri.setOnClickListener {
@@ -160,11 +171,6 @@ class RentabilitateFragment : Fragment() {
                 } else if (rentabilitateFinanciara == rentabilitateaActiunilor && rentabilitateaActiunilor > rataDobanzii) {
                     binding.indicatiiTextRentabilitate.text =
                         "Rent. Financiara : $rentabilitateFinanciara\nRent. Actiunilor : $rentabilitateaActiunilor\nRata dobanzii : $rataDobanzii\n RF = RA > RD"
-
-                //} else if (rentabilitateFinanciara == rentabilitateaActiunilor && rentabilitateaActiunilor < rataDobanzii) {
-                //    binding.indicatiiTextRentabilitate.text =
-                //        "Rent. Financiara : $rentabilitateFinanciara\nRent. Actiunilor : $rentabilitateaActiunilor\nRata dobanzii : $rataDobanzii\n RF = RA < RD"
-
                 } else if (rentabilitateFinanciara < rentabilitateaActiunilor && rentabilitateaActiunilor < rataDobanzii) {
                     binding.indicatiiTextRentabilitate.text =
                         "Rent. Financiara : $rentabilitateFinanciara\nRent. Actiunilor : $rentabilitateaActiunilor\nRata dobanzii : $rataDobanzii\n RF < RA < RD"
@@ -186,7 +192,15 @@ class RentabilitateFragment : Fragment() {
                 binding.rentActiuniText.text =
                     rentabilitateaActiunilor.toString()
                 binding.rataDobanziiText.text = rataDobanzii.toString()
+
             }
+            /*
+            statisticaRentabilitateFragment.setArguments(savedInstanceState)
+            savedInstanceState?.putString("keyRentFin", binding.rentFinanciaraText.text.toString())
+            savedInstanceState?.putString("keyRentAct", binding.rentActiuniText.text.toString())
+            savedInstanceState?.putString("keyRentFin", binding.rataDobanziiText.text.toString())
+
+             */
         }
     }
 

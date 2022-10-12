@@ -21,7 +21,6 @@ import java.time.format.DateTimeFormatter
 
 class BlankFragment : Fragment() {
 
-    //private lateinit var dataInv: InventarData
     private lateinit var binding: FragmentInventarBinding
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
@@ -48,6 +47,10 @@ class BlankFragment : Fragment() {
         val rezCalc = view.findViewById<TextView>(R.id.rezInitial)
         val rezTotal = view.findViewById<TextView>(R.id.rezTotal)
         val sesiune = view.findViewById<EditText>(R.id.nr_sesiune)
+
+        //val nrSesiune = view.findViewById<TextView>(R.id.nr_sesiune_input)
+        //val dataSesiune = view.findViewById<TextView>(R.id.data_sesiune_input)
+
         var isAllFieldsChecked: Boolean
 
         val currentDate = LocalDateTime.now()
@@ -79,7 +82,8 @@ class BlankFragment : Fragment() {
                 val rezcalculB = binding.rezInitial.text.toString().toDouble()
                 val reztotalB = binding.rezTotal.text.toString().toDouble()
                 val sesiuneB = binding.nrSesiune.text.toString().toInt()
-
+                //nrSesiune.text = sesiuneB.toString()
+                //dataSesiune.text = formattedData.toString()
 
                 //if (uid.isNotEmpty()) {
 
@@ -109,7 +113,6 @@ class BlankFragment : Fragment() {
 
         binding.saveInventar.setOnClickListener {
 
-
             val builder = AlertDialog.Builder(context)
             builder.setMessage("Doriti sa salvati sesiunea sesiunea cu data $formattedData ?")
 
@@ -119,12 +122,13 @@ class BlankFragment : Fragment() {
 
             builder.setPositiveButton("Confirma") { dialog, _ ->
                 dialog.apply {
-                    database = Firebase.database.getReference("Inventar/Sesiunea_$sesiune-$formattedData")
+                    //database = Firebase.database.getReference("Inventar/Sesiunea_$sesiune-$formattedData")
                     Toast.makeText(
                         context,
                         "Sesiunea a fost salvata !\n$formattedData",
                         Toast.LENGTH_SHORT
                     ).show()
+
                     produs.text = null
                     pret.text = null
                     cantitate.text = null

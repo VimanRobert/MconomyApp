@@ -58,7 +58,7 @@ class MicroFragment : Fragment() {
 
 
             builder.setNeutralButton("Ok") {
-                    dialog, which -> dialog.cancel()
+                    dialog, _ -> dialog.cancel()
             }
 
             val alertDialog = builder.create()

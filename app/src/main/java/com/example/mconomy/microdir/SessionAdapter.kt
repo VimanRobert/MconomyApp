@@ -5,8 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.core.content.contentValuesOf
+import androidx.navigation.Navigation.*
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mconomy.R
+
 
 class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
 
@@ -28,13 +34,16 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
         holder.nrSesiune.text = currentItem.nrSesiuneInv.toString()
         holder.nrProduse.text = currentItem.nrProduseInv.toString()
         holder.nrSumaTotala.text = currentItem.sumaTotalaInv.toString()
+        holder.sesiuni.setOnClickListener{
+
+        }
 
     }
 
     override fun getItemCount() = invList.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateInventarList(invList: List<SessionData>) {
+    fun updateSessionList(invList: List<SessionData>) {
         this.invList.clear()
         this.invList.addAll(invList)
         notifyDataSetChanged()
@@ -44,5 +53,6 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
         val nrSesiune: TextView = itemView.findViewById(R.id.nr_sesiune_input)
         val nrProduse: TextView = itemView.findViewById(R.id.nr_produse_input)
         val nrSumaTotala: TextView = itemView.findViewById(R.id.nr_suma_totala_input)
+        val sesiuni = itemView.findViewById<CardView>(R.id.sesiuni)
     }
 }

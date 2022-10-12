@@ -47,7 +47,7 @@ class ActiuniFragment : Fragment() {
         barChart.data = barData
         //barDataSet.setColors(Color.RED)
         barDataSet.setColors(Color.RED, Color.BLUE, Color.GREEN)
-        barDataSet.valueTextSize = 26f
+        barDataSet.valueTextSize = 20f
 
         barChart.description.isEnabled = true
 
@@ -62,10 +62,14 @@ class ActiuniFragment : Fragment() {
     }
 
     private fun getBarData() {
-        actiuniList.add(BarEntry(2f, 10f))
-        actiuniList.add(BarEntry(5f, 20f))
-        actiuniList.add(BarEntry(3f, 30f))
-        actiuniList.add(BarEntry(4f, 40f))
+        actiuniList.add(BarEntry(1f, 10f, "Initial"))
+        actiuniList.add(BarEntry(2f, 20f, "in creste"))
+        actiuniList.add(BarEntry(3f, 15f, "in scadere"))
+        actiuniList.add(BarEntry(4f, 16f, "in crestere"))
+        actiuniList.add(BarEntry(5f, 16f, "constant"))
+        actiuniList.add(BarEntry(6f, 14f, "in scadere"))
+        actiuniList.add(BarEntry(7f, 14f, "constant"))
+        actiuniList.add(BarEntry(8f, 30f, "in crestere"))
 
     }
 

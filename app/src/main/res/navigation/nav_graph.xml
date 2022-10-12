@@ -97,7 +97,9 @@
             app:destination="@id/microFragment" />
         <action
             android:id="@+id/action_rentabilitateFragment_to_statisticaRentabilitateFragment"
-            app:destination="@id/statisticaRentabilitateFragment" />
+            app:destination="@id/statisticaRentabilitateFragment">
+
+        </action>
     </fragment>
     <fragment
         android:id="@+id/econNatFragment"

@@ -7,11 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentItemListBinding
-import com.google.firebase.database.DatabaseReference
 
 
 class ItemInventarFragment : Fragment() {
@@ -19,24 +17,21 @@ class ItemInventarFragment : Fragment() {
     private lateinit var binding : FragmentItemListBinding
     private lateinit var viewModel: InventarViewModel
     private lateinit var recyclerView: RecyclerView
-    lateinit var adapter: InventarAdapter
-    private lateinit var databaseReference: DatabaseReference
+    private lateinit var adapter: InventarAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentItemListBinding.inflate(layoutInflater, container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 /*
         val produs = view.findViewById<TextView>(R.id.nume_produs_input)
         val deleteProdus = view.findViewById<Button>(R.id.sterge_produs)
@@ -58,13 +53,9 @@ class ItemInventarFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         adapter = InventarAdapter()
         recyclerView.adapter = adapter
-        viewModel = ViewModelProvider(this).get(InventarViewModel::class.java)
-        viewModel.listInv2.observe(viewLifecycleOwner, Observer {
+        viewModel = ViewModelProvider(this)[InventarViewModel::class.java]
+        viewModel.listInv2.observe(viewLifecycleOwner) {
             adapter.updateInventarList(it)
-        })
-
-        //IMPLEMENTAREA FUNCTIEI
+        }
     }
-
-    //FUNCTIA userData()
 }

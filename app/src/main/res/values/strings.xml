@@ -93,4 +93,14 @@
     <string name="aici_vor_aparea_rezultatele_in_urma_calculelor_executate">Aici vor aparea rezultatele in urma calculelor executate</string>
     <string name="fluxul_pretului_pe_3_zile">fluxul pretului pe 3 zile</string>
     <string name="chart_actiuni">Chart actiuni</string>
+    <string name="rata_dobanzii">Rata dobanzii</string>
+    <string name="rentabilitatea_actiunilor">Rentabilitatea actiunilor</string>
+    <string name="rentabilitatea_financiara">Rentabilitatea financiara</string>
+    <string name="sterge_inregistrarea">Sterge inregistrarea</string>
+    <string name="suma_totala">Suma totala:</string>
+    <string name="numar_produse">Numar produse:</string>
+    <string name="sesiune_de_inventar">Sesiune de inventar:</string>
+    <string name="textview">TextView</string>
+    <string name="mesaj">Mesaj</string>
+    <string name="conectat">Conectat</string>
 </resources>

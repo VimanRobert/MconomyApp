@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.fragment_register.*
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
-    //private lateinit var auth: FirebaseAuth
     private lateinit var toast: Toast
     private lateinit var userEmail: String
     private lateinit var userPassword: String
@@ -47,72 +46,6 @@ class RegisterFragment : Fragment() {
         registerAccount.setOnClickListener {
             signIn()
         }
-
-
-        /*
-                       Alter methods !!!!
-
-        val emailValid = RxTextView.textChanges(binding.username).skipInitialValue().map {
-            email -> !Patterns.EMAIL_ADDRESS.matcher(email).matches()
-        }
-        emailValid.subscribe{
-            showAlertEmail(it)
-        }
-        val passwordValid = RxTextView.textChanges(binding.password).skipInitialValue().map {
-                passw -> passw.length < 8
-        }
-        passwordValid.subscribe{
-            showAlertPassword(it)
-        }
-        val confPassword = Observable.merge(RxTextView.textChanges(binding.password)
-            .skipInitialValue().map { passw ->
-                passw.toString() != binding.passwordConfirm.text.toString() },
-            RxTextView.textChanges(binding.passwordConfirm)
-                .skipInitialValue().map { passwConf ->
-                    passwConf.toString() != binding.password.text.toString()})
-
-        val invalidFields = Observable.combineLatest(emailValid, passwordValid, confPassword, {
-            emailInv: Boolean, passwordInv: Boolean, passConfInv: Boolean ->
-            !emailInv && !passwordInv && !passConfInv
-        })
-        invalidFields.subscribe{
-                  isValid ->
-            if(isValid){
-                binding.registerID.isEnabled = true
-                binding.registerID.backgroundTintList =
-                    context?.let { ContextCompat.getColorStateList(it, R.color.colorAccent) }
-        }
-        }
-
-
-        val emailX = binding.username.findViewById<EditText>(R.id.username).toString()
-        val passwordX = binding.password.findViewById<EditText>(R.id.password).toString()
-
-        binding.registerID.setOnClickListener{
-            registerUser(emailX, passwordX)
-        }
-
-    }
-    private fun showAlertEmail(isNotValid: Boolean){
-        binding.username.error = if (isNotValid) "Email invalid sau deja existent !" else null
-
-    }
-    private fun showAlertPassword(isNotValid: Boolean){
-        binding.password.error = if (isNotValid) "Parola invalida sau deja existenta !" else null
-
-    }
-    private fun registerUser(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-                    Toast.makeText(context,"You are now registered!",Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(context,it.exception?.message,Toast.LENGTH_SHORT).show()
-                }
-            }
-
-         */
     }
 
     private fun notEmpty(): Boolean = emailREG.text.toString().trim().isNotEmpty() &&
@@ -144,7 +77,6 @@ class RegisterFragment : Fragment() {
             userEmail = emailREG.text.toString().trim()
             userPassword = passwordREG.text.toString().trim()
 
-            /*create a user*/
             firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -164,20 +96,4 @@ class RegisterFragment : Fragment() {
                 }
         }
     }
-/*
-    private fun sendEmailVerification() {
-        firebaseUser?.let {
-            it.sendEmailVerification().addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(
-                        context,
-                        "Mailul pentru verificare a fost trimis catre $emailREG",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-        }
-    }
-
- */
 }
