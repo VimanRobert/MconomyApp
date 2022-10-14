@@ -5,5 +5,13 @@
         android:id="@+id/action_logout"
         android:title="@string/deconectare"
         />
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/setari"
+        />
+    <item
+        android:id="@+id/action_home"
+        android:title="@string/acasa"
+        />
 
 </menu>

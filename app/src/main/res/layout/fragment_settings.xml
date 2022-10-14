@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="100sp"
+    tools:context=".SettingsFragment"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title_schimba_parola"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="@string/schimba_parola"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_vertical"
+        android:layout_marginStart="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/description_schimba_parola"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        app:layout_constraintTop_toBottomOf="@+id/title_schimba_parola"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:text="@string/apasa_pe_acest_buton_pentru_a_trimite_o_cerere_de_schimbare_a_parolei_curente."
+        />
+
+    <Button
+        android:id="@+id/button_schimba_parola"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:text="@string/trimite_cerere_pentru_schimbarea_parolei"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/description_schimba_parola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/title_suport"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="@string/suport"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_vertical"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_schimba_parola"/>
+    <TextView
+        android:id="@+id/description_suport"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        app:layout_constraintTop_toBottomOf="@+id/title_suport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:text="@string/pentru_suport_tehnic_scrie_un_mesaj_in_casuta_de_mai_jos_vei_primi_feedback_ul_pe_adresa_curenta_de_mail"
+        />
+
+    <EditText
+        android:id="@+id/suport_message_text"
+        android:layout_width="364dp"
+        android:layout_height="243dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="20sp"
+        android:hint="@string/scrie_aici_mesajul"
+        android:maxLines="12"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_suport"
+        android:gravity="top"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:inputType="text"
+        android:autofillHints="" />
+
+        <Button
+            android:id="@+id/button_trimite_mesajul"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/suport_message_text"
+            android:text="@string/trimite"
+            android:backgroundTint="@color/teal_700"
+            android:textAllCaps="false"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

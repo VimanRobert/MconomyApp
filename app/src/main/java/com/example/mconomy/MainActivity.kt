@@ -1,16 +1,14 @@
 package com.example.mconomy
 
 
-//    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
-//    GITHUB TOKEN
-
-
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.mconomy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -21,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,12 +30,23 @@ class MainActivity : AppCompatActivity() {
         //hideSystemUI()
         supportActionBar?.hide()
 
+        val settings = SettingsFragment()
+        val home = FirstInFragment()
+
         binding.topBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_logout -> {
                     auth.signOut()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    return@setOnMenuItemClickListener true
+                }
+                R.id.action_settings -> {
+                    setCurrentFragment(settings)
+                    return@setOnMenuItemClickListener true
+                }
+                R.id.action_home -> {
+                    setCurrentFragment(home)
                     return@setOnMenuItemClickListener true
                 }
                 else -> {
@@ -67,4 +77,11 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    private fun setCurrentFragment(fragment: Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.nav_host,fragment)
+            commit()
+        }
+
 }

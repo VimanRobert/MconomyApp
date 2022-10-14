@@ -10,7 +10,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="autentificare">Autentificare</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mconomy">Mconomy</string>
     <string name="microeconomie">Microeconomie</string>
@@ -103,4 +102,13 @@
     <string name="textview">TextView</string>
     <string name="mesaj">Mesaj</string>
     <string name="conectat">Conectat</string>
+    <string name="setari">Setari</string>
+    <string name="schimba_parola"><li>Schimba parola</li></string>
+    <string name="trimite_cerere_pentru_schimbarea_parolei">Trimite cerere pentru schimbarea parolei</string>
+    <string name="apasa_pe_acest_buton_pentru_a_trimite_o_cerere_de_schimbare_a_parolei_curente.">Apasa pe acest buton pentru a trimite o cerere de schimbare a parolei curente</string>
+    <string name="acasa">Acasa</string>
+    <string name="suport"><li>Suport</li></string>
+    <string name="pentru_suport_tehnic_scrie_un_mesaj_in_casuta_de_mai_jos_vei_primi_feedback_ul_pe_adresa_curenta_de_mail">Pentru suport tehnic scrie un mesaj in casuta de mai jos. Vei primi feedback-ul pe adresa curenta de mail.</string>
+    <string name="scrie_aici_mesajul">Scrie aici esajul</string>
+    <string name="trimite">Trimite</string>
 </resources>

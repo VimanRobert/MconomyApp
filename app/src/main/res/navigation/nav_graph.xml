@@ -217,4 +217,10 @@
             android:id="@+id/action_actiuniFragment_to_macroFragment"
             app:destination="@id/macroFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.mconomy.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+    </fragment>
 </navigation>
