@@ -111,4 +111,8 @@
     <string name="pentru_suport_tehnic_scrie_un_mesaj_in_casuta_de_mai_jos_vei_primi_feedback_ul_pe_adresa_curenta_de_mail">Pentru suport tehnic scrie un mesaj in casuta de mai jos. Vei primi feedback-ul pe adresa curenta de mail.</string>
     <string name="scrie_aici_mesajul">Scrie aici esajul</string>
     <string name="trimite">Trimite</string>
+    <string name="perioada_imprumut_credit">Perioada imprumut credit</string>
+    <string name="rata_dobanzii_credit">Rata dobanzii credit</string>
+    <string name="vizualizeaza_statistici_in_timp_real">Vizualizeaza statistici in timp real</string>
+    <string name="tesla_inc">Tesla, Inc.</string>
 </resources>

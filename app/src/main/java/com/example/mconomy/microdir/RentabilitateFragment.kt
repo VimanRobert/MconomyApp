@@ -30,30 +30,6 @@ class RentabilitateFragment : Fragment() {
 
         var isAllFieldsChecked: Boolean
 
-
-
-        // variabile de calcul
-/*
-        val profitNet: Double = binding.profitNetInput.text.toString().toDouble()
-        val capitalPropriu: Double = binding.capitaluriInput.text.toString().toDouble()
-        val activeTotale: Double = binding.activeTotaleInput.text.toString().toDouble()
-        val dobanda: Double = binding.dobandaInput.text.toString().toDouble()
-        val datorii: Double = binding.datoriiInput.text.toString().toDouble()
-
- */
-
-        // variabile indicatori
-/*
-        val rentabilitateFinanciara : Double
-        val rentabilitateaActiunilor : Double
-        val rataDobanzii : Double
-
-        rentabilitateFinanciara = profitNet / capitalPropriu
-        rentabilitateaActiunilor = profitNet / activeTotale
-        rataDobanzii = (dobanda / datorii).toString().toDouble()
-
- */
-
         binding.toRentChart.setOnClickListener {
             val bundle = Bundle()
             bundle.putFloat("keyRentFin", binding.rentFinanciaraText.text.toString().toFloat())

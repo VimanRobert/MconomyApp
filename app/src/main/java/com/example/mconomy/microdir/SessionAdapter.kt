@@ -5,18 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.content.contentValuesOf
-import androidx.navigation.Navigation.*
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mconomy.R
+import com.example.mconomy.databinding.InventarSessionsBinding
 
 
 class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
 
+    //private lateinit var binding: InventarSessionsBinding
     private val invList = ArrayList<SessionData>()
+/*
+    fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): View {
+        binding = InventarSessionsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+ */
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -34,7 +43,11 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
         holder.nrSesiune.text = currentItem.nrSesiuneInv.toString()
         holder.nrProduse.text = currentItem.nrProduseInv.toString()
         holder.nrSumaTotala.text = currentItem.sumaTotalaInv.toString()
-        holder.sesiuni.setOnClickListener{
+        holder.dataSesiunii.text = currentItem.dataSesiune.toString()
+
+        holder.sesiuni.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_inventarSessionItemsFragment_to_itemInventarFragment)
+            //Navigation.createNavigateOnClickListener(R.id.action_inventarSessionItemsFragment_to_itemInventarFragment)
 
         }
 
@@ -42,7 +55,7 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
 
     override fun getItemCount() = invList.size
 
-    @SuppressLint("NotifyDataSetChanged")
+   @SuppressLint("NotifyDataSetChanged")
     fun updateSessionList(invList: List<SessionData>) {
         this.invList.clear()
         this.invList.addAll(invList)
@@ -53,6 +66,9 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
         val nrSesiune: TextView = itemView.findViewById(R.id.nr_sesiune_input)
         val nrProduse: TextView = itemView.findViewById(R.id.nr_produse_input)
         val nrSumaTotala: TextView = itemView.findViewById(R.id.nr_suma_totala_input)
-        val sesiuni = itemView.findViewById<CardView>(R.id.sesiuni)
+        val dataSesiunii: TextView = itemView.findViewById(R.id.data_sesiune_input)
+
+        val sesiuni: CardView = itemView.findViewById(R.id.sesiuni)
+
     }
 }

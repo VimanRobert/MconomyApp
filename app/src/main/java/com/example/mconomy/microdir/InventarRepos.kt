@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.database.*
 
 class InventarRepos {
-    private val invRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Inventar/Sesiunea_1-11:04_11-10-22").ref
+    private val invRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Inventar").ref
 
     @Volatile
     private var instance2: InventarRepos? = null

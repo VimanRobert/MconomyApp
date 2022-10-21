@@ -54,7 +54,7 @@ class ItemInventarFragment : Fragment() {
         adapter = InventarAdapter()
         recyclerView.adapter = adapter
         viewModel = ViewModelProvider(this)[InventarViewModel::class.java]
-        viewModel.listInv2.observe(viewLifecycleOwner) {
+        viewModel.listInv1.observe(viewLifecycleOwner) {
             adapter.updateInventarList(it)
         }
     }

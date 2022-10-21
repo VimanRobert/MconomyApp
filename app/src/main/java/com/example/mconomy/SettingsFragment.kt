@@ -3,7 +3,7 @@ package com.example.mconomy
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.pm.PackageManager
+//import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,7 +19,7 @@ class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
     private lateinit var auth: FirebaseAuth
-    private  var packageManager: PackageManager?=null
+    //private  var packageManager: PackageManager?=null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +29,7 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("ShowToast")
+    @SuppressLint("ShowToast", "IntentReset")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -86,21 +86,36 @@ class SettingsFragment : Fragment() {
 
         //TRIMITEREA UNUI MESAJ CATRE SUPPORT TEAM
 
+        val subjectMessage ="Ajutor"
+        subjectMessage.trim()
+        supportEmail.split(",".toRegex()).toTypedArray().toString().trim()
         binding.buttonTrimiteMesajul.setOnClickListener {
-            val message = binding.suportMessageText.text.toString()
-            auth.currentUser?.email?.split(",".toRegex())?.toTypedArray()
-            val intent =Intent(Intent.ACTION_SENDTO).apply {
-                data = Uri.parse("mailto:")
-                putExtra(Intent.EXTRA_EMAIL, supportEmail)
-                putExtra(Intent.EXTRA_SUBJECT, "Ajutor")
-                putExtra(Intent.EXTRA_TEXT, message)
-            }
-            if(packageManager?.let { it1 -> intent.resolveActivity(it1) } != null){
-                startActivity(intent)
-            }else{
-                Toast.makeText(context, "Nu exista o aplicatie care sa deschida mesageria! Descarca una de pe Magazin Play (ex: Gmail, Yahoo Mail)", Toast.LENGTH_LONG).show()
-            }
+            val message = binding.suportMessageText.text.toString().trim()
+            if (message.isEmpty()) {
+                Toast.makeText(context, "Textul este gol !", Toast.LENGTH_SHORT).show()
+                binding.suportMessageText.error = "Pentru a trimite un mail catre centrul de suport este nevoie sa introduci un mesaj aici !"
+            } else {
+                auth.currentUser?.email?.split(",".toRegex())?.toTypedArray()
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.data = Uri.parse("mailto:")
+                intent.type = "message/rfc822"
+                intent.putExtra(Intent.EXTRA_EMAIL, email)
+                intent.putExtra(Intent.EXTRA_SUBJECT, subjectMessage)
+                intent.putExtra(Intent.EXTRA_TEXT, message)
 
+                try {
+                    startActivity(Intent.createChooser(intent, "Alege aplicatia"))
+                    //Toast.makeText(context, "Mesajul a fost trimis cu succes !", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        context,
+                        "Nu exista o aplicatie care sa deschida mesageria! Descarca una de pe Magazin Play (ex: Gmail, Yahoo Mail)",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+            }
         }
+
     }
 }

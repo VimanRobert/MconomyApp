@@ -142,6 +142,12 @@
         <action
             android:id="@+id/action_bancaFragment_to_imprumutBancarFragment"
             app:destination="@id/imprumutBancarFragment" />
+        <action
+            android:id="@+id/action_bancaFragment_to_crediteFragment"
+            app:destination="@id/crediteFragment" />
+        <action
+            android:id="@+id/action_bancaFragment_to_profitBancar"
+            app:destination="@id/profitBancar" />
     </fragment>
     <fragment
         android:id="@+id/itemInventarFragment"
@@ -216,11 +222,53 @@
         <action
             android:id="@+id/action_actiuniFragment_to_macroFragment"
             app:destination="@id/macroFragment" />
+        <action
+            android:id="@+id/action_actiuniFragment_to_realTimeActiuniFragment"
+            app:destination="@id/realTimeActiuniFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.mconomy.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
+    </fragment>
+    <fragment
+        android:id="@+id/crediteFragment"
+        android:name="com.example.mconomy.macrodir.CrediteFragment"
+        android:label="credite_list"
+        tools:layout="@layout/credite_list" >
+        <action
+            android:id="@+id/action_crediteFragment_to_bancaFragment"
+            app:destination="@id/bancaFragment" />
+        <action
+            android:id="@+id/action_crediteFragment_to_creditDetail"
+            app:destination="@id/creditDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/creditDetail"
+        android:name="com.example.mconomy.macrodir.CreditDetail"
+        android:label="fragment_credit_detail"
+        tools:layout="@layout/fragment_credit_detail" >
+        <action
+            android:id="@+id/action_creditDetail_to_crediteFragment"
+            app:destination="@id/crediteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profitBancar"
+        android:name="com.example.mconomy.macrodir.ProfitBancar"
+        android:label="fragment_profit_bancar"
+        tools:layout="@layout/fragment_profit_bancar" >
+        <action
+            android:id="@+id/action_profitBancar_to_bancaFragment"
+            app:destination="@id/bancaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/realTimeActiuniFragment"
+        android:name="com.example.mconomy.macrodir.RealTimeActiuniFragment"
+        android:label="fragment_real_time_actiuni"
+        tools:layout="@layout/fragment_real_time_actiuni" >
+        <action
+            android:id="@+id/action_realTimeActiuniFragment_to_actiuniFragment"
+            app:destination="@id/actiuniFragment" />
     </fragment>
 </navigation>

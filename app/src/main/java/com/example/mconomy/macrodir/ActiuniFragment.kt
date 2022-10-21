@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentActiuniBinding
 import com.github.mikephil.charting.charts.BarChart
@@ -59,6 +60,11 @@ class ActiuniFragment : Fragment() {
         pieDataSet.setColors(Color.GREEN, Color.BLUE, Color.CYAN, Color.RED)
         pieDataSet.valueColors.add(Color.BLACK)
         pieDataSet.valueTextSize = 26f
+
+
+        binding.butonToActiuniData.setOnClickListener {
+            findNavController().navigate(R.id.action_actiuniFragment_to_realTimeActiuniFragment)
+        }
     }
 
     private fun getBarData() {

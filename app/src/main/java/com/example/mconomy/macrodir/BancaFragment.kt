@@ -31,5 +31,11 @@ class BancaFragment : Fragment() {
         binding.toImprumuturiBancare.setOnClickListener {
             findNavController().navigate(R.id.action_bancaFragment_to_imprumutBancarFragment)
         }
+        binding.toCrediteBancare.setOnClickListener {
+            findNavController().navigate(R.id.action_bancaFragment_to_crediteFragment)
+        }
+        binding.toProfitBancar.setOnClickListener {
+            findNavController().navigate(R.id.action_bancaFragment_to_profitBancar)
+        }
     }
 }

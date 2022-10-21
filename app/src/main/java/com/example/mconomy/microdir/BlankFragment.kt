@@ -23,8 +23,8 @@ class BlankFragment : Fragment() {
 
     private lateinit var binding: FragmentInventarBinding
     private lateinit var database: DatabaseReference
+    private lateinit var database2: DatabaseReference
     private lateinit var auth: FirebaseAuth
-    private lateinit var uid: String
 
 
     override fun onCreateView(
@@ -57,6 +57,12 @@ class BlankFragment : Fragment() {
         val formatDate = DateTimeFormatter.ofPattern("HH:mm_dd-MM-yy")
         val formattedData = currentDate.format(formatDate)
 
+        val currentDate2 = LocalDateTime.now()
+        val formatDate2 = DateTimeFormatter.ofPattern("dd-MM-yy")
+        val formattedData2 = currentDate2.format(formatDate2)
+
+        var countItems = 0
+
         binding.calcul.setOnClickListener {
             isAllFieldsChecked = checkAllFields()
             if (isAllFieldsChecked) {
@@ -74,7 +80,8 @@ class BlankFragment : Fragment() {
             if (isAllFieldsChecked) {
 
                 auth = FirebaseAuth.getInstance()
-                uid = auth.currentUser?.uid.toString()
+                val uid = auth.currentUser?.uid.toString()
+                //val userEmail = auth.currentUser?.email.toString()
 
                 val produsB = binding.numeProdusID.text.toString()
                 val pretB = binding.pretID.text.toString().toDouble()
@@ -89,11 +96,15 @@ class BlankFragment : Fragment() {
 
 
                 //var inv_number = 0
-                database = Firebase.database.getReference("Inventar/Sesiunea_$sesiuneB-$formattedData")
+                database = Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2")
 
 
                 val inventar = InventarData(produsB, pretB, cantitateB, rezcalculB, reztotalB)
                 database.child(produsB).setValue(inventar).addOnSuccessListener {
+                    countItems++
+                    val addSession = SessionData(sesiuneB, countItems, reztotalB, formattedData)
+                    database2 = Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2")
+                    database2.child("INFO").setValue(addSession)
                     produs.text = null
                     pret.text = null
                     cantitate.text = null

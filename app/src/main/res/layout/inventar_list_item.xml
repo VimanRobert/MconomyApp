@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="200dp"
     app:cardElevation="10sp"
     app:cardCornerRadius="10sp"
     android:layout_marginTop="20sp"
@@ -20,7 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_vertical"
+            tools:ignore="UselessParent">
 
             <TextView
                 android:id="@+id/numeProdusText"
@@ -67,63 +69,77 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         android:orientation="vertical"
-        android:layout_marginStart="170sp">
+        android:layout_marginStart="10sp"
+        android:layout_marginVertical="10sp">
 
-        <TextView
-            android:id="@+id/nume_produs_input"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/descriere"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="250sp"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
-        <TextView
-            android:id="@+id/cantitate_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6sp"
-            android:text="@string/_0_00" />
+            <TextView
+                android:id="@+id/nume_produs_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descriere"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/pret_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6sp"
-            android:text="@string/_0_00" />
+            <TextView
+                android:id="@+id/cantitate_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6sp"
+                android:text="@string/_0_00" />
 
-        <TextView
-            android:id="@+id/rezultat_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6sp"
-            android:text="@string/_0_00" />
+            <TextView
+                android:id="@+id/pret_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6sp"
+                android:text="@string/_0_00" />
 
-        <TextView
-            android:id="@+id/rezultat_acumulat_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6sp"
-            android:text="@string/_0_00" />
+            <TextView
+                android:id="@+id/rezultat_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6sp"
+                android:text="@string/_0_00" />
 
+            <TextView
+                android:id="@+id/rezultat_acumulat_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6sp"
+                android:text="@string/_0_00" />
+        </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginStart="250sp"
+        android:layout_marginEnd="20dp"
         android:orientation="vertical"
-        android:layout_marginStart="280sp">
+        tools:ignore="UselessLeaf">
 
-        <Button
-            android:id="@+id/sterge_produs"
-            android:layout_width="90sp"
-            android:layout_height="wrap_content"
-            android:text="@string/sterge"
-            android:backgroundTint="@color/colorAccent"
-            android:textAllCaps="false"/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/sterge_produs"
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="150dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/sterge"
+        android:textAllCaps="false" />
 
 </androidx.cardview.widget.CardView>

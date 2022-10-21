@@ -6,12 +6,13 @@ import androidx.lifecycle.ViewModel
 
 class InventarViewModel : ViewModel(){
 
-    private val repos: InventarRepos = InventarRepos().getInst()
-    private val listInv1 = MutableLiveData<List<InventarData>>()
-    val listInv2 : LiveData<List<InventarData>> = listInv1
+    private val repos: InventarRepos
+    private val listInv2 = MutableLiveData<List<InventarData>>()
+    val listInv1 : LiveData<List<InventarData>> = listInv2
 
     init {
-        repos.loadInventarData(listInv1)
+        repos = InventarRepos().getInst()
+        repos.loadInventarData(listInv2)
     }
 
 }
