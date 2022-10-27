@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="100dp"
     tools:context=".macrodir.ProfitBancar">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/web_data_profit"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />

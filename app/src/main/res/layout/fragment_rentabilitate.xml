@@ -40,15 +40,16 @@
 
         <Button
             android:id="@+id/to_rent_chart"
-            android:text="Vizualizeaza stiatistica"
-            android:background="@color/teal_700"
-            app:layout_constraintTop_toBottomOf="@+id/indicatii_text_rentabilitate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:textAllCaps="false"/>
+            android:layout_marginTop="20dp"
+            android:background="@color/teal_700"
+            android:text="@string/vizualizeaza_stiatistica"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indicatii_text_rentabilitate" />
 
 
         <EditText
@@ -85,7 +86,8 @@
             android:src="@android:drawable/ic_menu_info_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_capitaluri"
-            app:tint="@color/teal_700"/>
+            app:tint="@color/teal_700"
+            android:contentDescription="@string/info" />
 
         <ImageView
             android:id="@+id/imageView_dobanda"
@@ -96,7 +98,8 @@
             android:src="@android:drawable/ic_menu_info_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_active_totale"
-            app:tint="@color/teal_700"/>
+            app:tint="@color/teal_700"
+            android:contentDescription="@string/info" />
 
         <EditText
             android:id="@+id/datorii_input"
@@ -119,7 +122,8 @@
             android:src="@android:drawable/ic_menu_info_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_dobanda"
-            app:tint="@color/teal_700"/>
+            app:tint="@color/teal_700"
+            android:contentDescription="@string/info" />
 
         <EditText
             android:id="@+id/profit_net_input"
@@ -142,7 +146,8 @@
             android:src="@android:drawable/ic_menu_info_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_profit_net"
-            app:tint="@color/teal_700"/>
+            app:tint="@color/teal_700"
+            android:contentDescription="@string/info" />
 
         <EditText
             android:id="@+id/dobanda_input"
@@ -165,7 +170,8 @@
             android:src="@android:drawable/ic_menu_info_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/to_rent_chart"
-            app:tint="@color/teal_700" />
+            app:tint="@color/teal_700"
+            android:contentDescription="@string/info" />
 
         <Button
             android:id="@+id/calcul_rentabilitate"

@@ -70,10 +70,16 @@ class EconNatFragment : Fragment() {
                     binding.pnbInput.text = (binding.pibInput.text.toString()
                         .toDouble() + binding.venitRezDinStrainatate.text.toString()
                         .toDouble() - binding.venitRezStraini.text.toString().toDouble()).toString()
+                    if (binding.calculeazaP.text.toString() != "Calculeaza"){
+                        binding.viewEconType.text = "** Private economy"
+                    }else
                     binding.viewEconType.text = "** Economie privata"
 
                 } else if (binding.exporturiid.text!!.isEmpty() && binding.importuriid.text!!.isEmpty()) {
-                    binding.viewEconType.text = "** Economie inchisa (PIB = PNB)"
+                    if(binding.calculeazaP.text.toString() != "Calculeaza"){
+                        binding.viewEconType.text = "** Economie inchisa (PIB = PNB)"
+                    }else
+                    binding.viewEconType.text = "** Closed economy (GDP = GNP)"
                     binding.pibInput.text = (binding.consumid.text.toString()
                         .toDouble() + binding.investitiiid.text.toString()
                         .toDouble() + binding.cheltuieliGuvid.text.toString().toDouble()).toString()
@@ -94,6 +100,9 @@ class EconNatFragment : Fragment() {
                     binding.pnbInput.text = (binding.pibInput.text.toString()
                         .toDouble() + binding.venitRezDinStrainatate.text.toString()
                         .toDouble() - binding.venitRezStraini.text.toString().toDouble()).toString()
+                    if(binding.calculeazaP.text.toString() != "Calculeaza"){
+                        binding.viewEconType.text = "** Open econmomy"
+                    }else
                     binding.viewEconType.text = "** Economie deschisa"
                 }
             }

@@ -96,7 +96,7 @@
         <Button
             android:id="@+id/button_trimite_mesajul"
             android:layout_width="120dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.92"
@@ -105,6 +105,54 @@
             android:text="@string/trimite"
             android:backgroundTint="@color/teal_700"
             android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/sterge_mesajul"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/button_trimite_mesajul"
+            app:layout_constraintHorizontal_bias="0.031"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/suport_message_text"
+            android:text="@string/sterge_tot_mesajul"
+            android:backgroundTint="@color/maroon"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/selecteaza_limba_title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/suport_message_text"
+            android:layout_marginTop="100dp"
+            android:text="@string/selecteaza_limba"
+            android:textColor="@color/black"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:gravity="center_vertical"
+            />
+        <Spinner
+            android:id="@+id/schimba_limba"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/selecteaza_limba_title"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/schimba_limba"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,25 +1,33 @@
 package com.example.mconomy
 
+
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
-//import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.mconomy.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
+import java.util.*
 
 
 class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
-    private lateinit var auth: FirebaseAuth
-    //private  var packageManager: PackageManager?=null
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val langArray = arrayOf("English", "Romana")
+    private val email: String = auth.currentUser?.email.toString().trim()
+    private val supportEmail = "robert.viman4@gmail.com".trim()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,12 +41,10 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        auth = FirebaseAuth.getInstance()
-        val email: String = auth.currentUser?.email.toString().trim()
-        val supportEmail = "robert.viman4@gmail.com"
 
         //CERERE PENTRU SCHIMBAREA PAROLEI
 
+        val subjectMessage = getString(R.string.ajutor)
         binding.buttonSchimbaParola.setOnClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setMessage("Esti sigur ?")
@@ -47,10 +53,10 @@ class SettingsFragment : Fragment() {
             builder.setCancelable(true)
 
 
-            builder.setNegativeButton("Nu") { dialog, _ ->
+            builder.setNegativeButton(getString(R.string.nu)) { dialog, _ ->
                 dialog.cancel()
             }
-            builder.setPositiveButton("Da") { dialog, _ ->
+            builder.setPositiveButton(getString(R.string.da)) { dialog, _ ->
                 dialog.apply {
                     auth.sendPasswordResetEmail(email).addOnCompleteListener {
                         //if (task.isSuccessful) {
@@ -61,23 +67,23 @@ class SettingsFragment : Fragment() {
                         ).show()
                     }
 
-                            val builder2 = AlertDialog.Builder(context)
-                            builder2.setMessage("Ramai conectat ?")
+                    val builder2 = AlertDialog.Builder(context)
+                    builder2.setMessage(getString(R.string.ramai_conectat_ask))
 
-                            builder2.setTitle("Cont")
-                            builder2.setCancelable(true)
+                    builder2.setTitle("Cont")
+                    builder2.setCancelable(true)
 
 
-                            builder2.setNegativeButton("Nu") { _, _ ->
-                                auth.signOut()
-                                val intent = Intent(activity, MainActivity::class.java)
-                                activity?.startActivity(intent)
-                            }
-                            builder2.setPositiveButton("Da"){ dialog, _ ->
-                                dialog.cancel()
-                            }
-                            val alertDialog2 = builder2.create()
-                            alertDialog2.show()
+                    builder2.setNegativeButton("Nu") { _, _ ->
+                        auth.signOut()
+                        val intent = Intent(activity, MainActivity::class.java)
+                        activity?.startActivity(intent)
+                    }
+                    builder2.setPositiveButton("Da") { dialog, _ ->
+                        dialog.cancel()
+                    }
+                    val alertDialog2 = builder2.create()
+                    alertDialog2.show()
                 }
             }
             val alertDialog = builder.create()
@@ -86,36 +92,98 @@ class SettingsFragment : Fragment() {
 
         //TRIMITEREA UNUI MESAJ CATRE SUPPORT TEAM
 
-        val subjectMessage ="Ajutor"
         subjectMessage.trim()
         supportEmail.split(",".toRegex()).toTypedArray().toString().trim()
         binding.buttonTrimiteMesajul.setOnClickListener {
-            val message = binding.suportMessageText.text.toString().trim()
-            if (message.isEmpty()) {
-                Toast.makeText(context, "Textul este gol !", Toast.LENGTH_SHORT).show()
-                binding.suportMessageText.error = "Pentru a trimite un mail catre centrul de suport este nevoie sa introduci un mesaj aici !"
-            } else {
-                auth.currentUser?.email?.split(",".toRegex())?.toTypedArray()
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.data = Uri.parse("mailto:")
-                intent.type = "message/rfc822"
-                intent.putExtra(Intent.EXTRA_EMAIL, email)
-                intent.putExtra(Intent.EXTRA_SUBJECT, subjectMessage)
-                intent.putExtra(Intent.EXTRA_TEXT, message)
+            sendMailToSupport()
+        }
+        val langAdapter: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, langArray)
+        langAdapter.setDropDownViewResource(android.R.layout.simple_gallery_item)
+        val setLang = binding.schimbaLimba
+        setLang.adapter = langAdapter
+        setLang.setSelection(0)
 
-                try {
-                    startActivity(Intent.createChooser(intent, "Alege aplicatia"))
-                    //Toast.makeText(context, "Mesajul a fost trimis cu succes !", Toast.LENGTH_SHORT).show()
-                } catch (e: Exception) {
-                    Toast.makeText(
-                        context,
-                        "Nu exista o aplicatie care sa deschida mesageria! Descarca una de pe Magazin Play (ex: Gmail, Yahoo Mail)",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+        //STERGEREA MESAJULUI
 
+        binding.stergeMesajul.setOnClickListener {
+            val mesaj = binding.suportMessageText.text
+            if(mesaj.isNotEmpty()){
+                mesaj.clear()
+            }else if(mesaj.isEmpty()) {
+                Toast.makeText(context, getString(R.string.text_gol), Toast.LENGTH_SHORT)
             }
         }
 
+        //SELECTEAZA LIMBA
+
+        setLang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val select = parent?.getItemAtPosition(position).toString()
+                if (select == "English") {
+                    //setLocalLanguage(MainActivity(), "en")
+                    setLocalLanguage("en")
+                } else if (select == "Romana") {
+                    //setLocalLanguage(MainActivity(), "ro")
+                    setLocalLanguage("ro")
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+
+
     }
+
+    fun setLocalLanguage(lang: String) {
+        val locale = Locale(lang)
+        locale.getDisplayLanguage(locale)
+        val resources: Resources = resources
+        val config: Configuration = resources.configuration
+        val metrics: DisplayMetrics? = resources.displayMetrics
+        config.setLocale(locale)
+        @Suppress("DEPRECATION")
+        resources.updateConfiguration(config, metrics)
+        //resources.configuration.locales
+        onConfigurationChanged(config)
+    }
+
+    @SuppressLint("IntentReset")
+    fun sendMailToSupport() {
+        val subjectMessage = getString(R.string.ajutor)
+        val message = binding.suportMessageText.text.toString().trim()
+        if (message.isEmpty()) {
+            Toast.makeText(context, getString(R.string.text_gol), Toast.LENGTH_SHORT).show()
+            binding.suportMessageText.error = getString(R.string.err_no_text_send_mail)
+        } else {
+            auth.currentUser?.email?.split(",".toRegex())?.toTypedArray()
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.data = Uri.parse("mailto:")
+            intent.type = "message/rfc822"
+            intent.putExtra(Intent.EXTRA_EMAIL, email)
+            intent.putExtra(Intent.EXTRA_CC, supportEmail)
+            intent.putExtra(Intent.EXTRA_SUBJECT, subjectMessage)
+            intent.putExtra(Intent.EXTRA_TEXT, message)
+
+            try {
+                startActivity(Intent.createChooser(intent, getString(R.string.alege_aplicatia)))
+                //Toast.makeText(context, "Mesajul a fost trimis cu succes !", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(
+                    context,
+                    getString(R.string.nu_exista_app_comp),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+        }
+    }
+
 }

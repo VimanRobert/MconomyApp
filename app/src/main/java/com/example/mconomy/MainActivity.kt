@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val settings = SettingsFragment()
-        val home = FirstInFragment()
+        //val home = FirstInFragment()
 
         binding.topBar.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -46,7 +46,9 @@ class MainActivity : AppCompatActivity() {
                     return@setOnMenuItemClickListener true
                 }
                 R.id.action_home -> {
-                    setCurrentFragment(home)
+                    //setCurrentFragment(home)
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
                     return@setOnMenuItemClickListener true
                 }
                 else -> {

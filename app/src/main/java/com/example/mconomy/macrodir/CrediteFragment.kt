@@ -31,38 +31,38 @@ class CrediteFragment : Fragment() {
         arrayList = ArrayList()
 
         val tipCreditArray = arrayOf(
-            "Ipotecar",
-            "Imobiliar",
-            "Pe viata",
-            "Obligatar",
-            "De consum",
-            "Bancar",
-            "Comercial",
-            "Nebancar"
+            getString(R.string.ipotecar),
+            getString(R.string.imobiliar),
+            getString(R.string.pe_viata),
+            getString(R.string.obligatar),
+            getString(R.string.de_consum),
+            getString(R.string.bancar),
+            getString(R.string.comercial),
+            getString(R.string.nebancar)
         )
         val rataDobanziiArray = arrayOf(5.0, 7.0, 10.0, 20.0, 30.0, 35.0, 1.0, 8.5, 5.5, 6.0, 6.5)
         val perioadaImprumutArray =
             arrayOf(
 
-                "maxim de 10 ani",
-                "maxim de 15 ani",
-                "maxim 20 de ani",
-                "maxim 25 de ani",
-                "maxim 30 de ani",
-                "maxim 35 de ani",
-                "pe toata durata vietii"
+                getString(R.string.max_10_ani),
+                getString(R.string.max_15_ani),
+                getString(R.string.max_20_ani),
+                getString(R.string.max_25_ani),
+                getString(R.string.max_30_ani),
+                getString(R.string.max_35_ani),
+                getString(R.string.pe_toata_viata)
 
             )
         val descriereArray = arrayOf(
 
-            "Pentru aprobarea creditului, salariul tău net lunar trebuie să fie de minimum 1.524 lei. Dacă obții venituri de la mai mulți angajatori, se acceptă cumularea acestora atât timp cât cel puțin unul din venituri este echivalentul salariului minim pe economie.",
-            "Creditul ipotecar Patria Acasă este disponibil în lei sau euro și poate fi utilizat pentru achiziționarea unui imobil ( casă sau apartament) sau unui alt credit imobiliar deținut la altă bancă.",
-            "Singurul cost al asigurării este prima lunară. Adică 0,138% din valoarea soldului creditului. Și ea va scădea odată cu rambursarea creditului. Un calcul orientativ: la un credit de 20.000 de lei, suma de plată pentru prima lună este 27,60 lei. Ulterior, ea va scădea proporțional cu suma rămasă de rambursat.",
-            "Creditul obligatar reprezinta o grupa a operatiilor de credit cu existenta seculara care se refera la relatiile de credit in care partenerii sunt institutiile statale sau intreprinderile economice in calitate de debitori, care emit obligatiunile, in aceasta calitate, pe de o parte, si creditorii, subscriitori si detinatori ai acestor obligatiuni, care-si angajeaza astfel capitalurile, in vederea obtinerii unui venit sigur sub forma principala de dobanzi.",
-            "Creditele de consum sunt acele împrumuturi făcute pentru achiziționarea unor bunuri de consum sau servicii. Se folosesc frecvent pentru a cumpăra mașini, călătorii sau obiecte de uz casnic.",
-            "Credit prin care banca pune la dispozitia solicitantului sume de bani ce vor fi restituite la un termen determinat (imprumut de bani).Creditul bancar are la baza un contract intre banca si un client, care poate fi o persoana fizica, o persoana juridica sau institutie de stat.",
-            "Creditul comercial este un instrument esențial pentru companiile care doresc să cucerească noi piețe și să clădească o relație comercială pe termen lung. Indispensabil în anumite sectoare, cum ar fi sectorul distribuției sau sectorul construcțiilor, creditul comercial implică diverse riscuri, însă există modalități de a le controla în mod eficient.",
-            "Un credit nebancar se caracterizeaza urmatoarele: vei primi banii rapid; ai nevoie de un numar redus de documente pentru primirea imprumutului nebancar; toti pasii de realizare a creditului nebancar se completeaza online, direct din fata calculatorului. Un credit bancar, spre deosebire de imprumutul nebancar, te obliga la: prezentarea unui numar voluminos de acte care fac obiectul eligibilitatii in vederea primirii creditului; imprumuturile bancare se obtin mult mai greu spre deosebire de creditele nebancare; practicarea comisioanelor in baza carora angajatii bancilor verifica dosarul viitorului beneficiar; pasii pe care ii urmezi pentru acordarea imprumuturilor bancare sunt realizati la sediul bancii respective."
+            getString(R.string.credit_ipotecar),
+            getString(R.string.credit_imobiliar),
+            getString(R.string.credit_pe_viata),
+            getString(R.string.credit_obligatar),
+            getString(R.string.credit_de_consum),
+            getString(R.string.credit_bancar),
+            getString(R.string.credit_comercial),
+            getString(R.string.credit_nebancar)
 
         )
         //0 - Ipotecar
@@ -113,7 +113,7 @@ class CrediteFragment : Fragment() {
         val creditComercial = CreditData(
             tipCreditArray[6],
             rataDobanziiArray[6],
-            perioadaImprumutArray[5],
+            perioadaImprumutArray[1],
             descriereArray[6]
         )
         val creditNebancar = CreditData(
@@ -123,9 +123,9 @@ class CrediteFragment : Fragment() {
             descriereArray[7]
         )
         Log.i("x", "rata dobanzii length ${rataDobanziiArray.size}")
-        Log.i("x", "rata dobanzii index ${rataDobanziiArray[3]}")
+        Log.i("x", "rata dobanzii index ${rataDobanziiArray[6]}")
         Log.i("y", "perioada imprumut length ${perioadaImprumutArray.size}")
-        Log.i("y", "perioada imprumut index ${perioadaImprumutArray[3]}")
+        Log.i("y", "perioada imprumut index ${perioadaImprumutArray[1]}")
 
         arrayList.add(creditIpotecar)
         arrayList.add(creditImobiliar)

@@ -1,16 +1,16 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Mconomy</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_password">Parola</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="action_sign_in_short">Inregistrare</string>
+    <string name="welcome">"Bine ai venit!"</string>
+    <string name="invalid_username">Nume utilizator invalid</string>
+    <string name="invalid_password">Parola trebuie sa aiba mai mult de 5 caractere</string>
+    <string name="login_failed">"Autentificarea a esuat"</string>
     <string name="autentificare">Autentificare</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Salutare!</string>
     <string name="mconomy">Mconomy</string>
     <string name="microeconomie">Microeconomie</string>
     <string name="inapoi">Inapoi</string>
@@ -44,13 +44,13 @@
     <string name="pgb">PGB :</string>
     <string name="pnb">PNB :</string>
     <string name="content_info"><it>Microeconomia</it> se ocupă cu studiul comportamentului economic al diferiților consumatori (teoria bugetară), al firmei (teoria producției) si problematica împărțirii bunurilor limitate si a venitului limitat. În cadrul microeconomiei indivizii sunt văzuți ca forță de muncă, ca și consumatori ai bunurilor produse, pe care aceștia le consumă cu scopul de a-și maximiza folosința. Unitățile de producție utilizează factorii de producție cum ar fi munca, capitalul, progresul științific cu scopul de a maximiza profitul.</string>
-    <string name="li_inventar"><b><li>Inventar:</li></b> este un proces de gestiune a stocului curent. Produsele vor fi adăugate într-o listă după ce fe va executa operațiunea de calcul al produsului dintre preț și cantitate. Lista va fi adăugate într-o bază de date globală</string>
+    <string name="li_inventar" tools:ignore="Typos"><b><li>Inventar:</li></b> este un proces de gestiune a stocului curent. Produsele vor fi adăugate într-o listă după ce fe va executa operațiunea de calcul al produsului dintre preț și cantitate. Lista va fi adăugate într-o bază de date globală</string>
     <string name="utilitatile_microeconomiei">Utilitățile microeconomiei și informații despre funcționalitățile din aplicație.</string>
     <string name="li_rentabilitate"><b><li>Rentabilitate:</li></b> Măsoară rata de rentabilitate a activelor instituţiilor sau companiilor. Se determină ca raport între profitul net şi activele la sfârşitul perioadei sau profit net şi media activelor (ROA).</string>
     <string name="li_cost_de_oportunitate"><b><li>Cost de oportunitate:</li></b> reprezintă valoarea celei mai bune dintre șansele sacrificate, la care se renunță atunci când se face o alegere oarecare. Cu alte cuvinte, el măsoară cea mai mare pierdere dintre variantele sacrificate, considerându-se că alegerea făcută constituie „câștigul”. Este valoarea sacrificiilor alegerilor efective, în condițiile resurselor date. Costul de oportunitate al unui bun este dat de ceea ce se sacrifica pentru a obtine acest bun. Alegerile sau deciziile au un anumit cost, deoarece atunci când se ia o anumită decizie și se optează în favoarea unei opțiuni, sunt sacrificate celelalte.</string>
 
     <string name="utilitatile_macroeconomiei">Utilitățile macroeconomiei și informații despre funcționalitățile din aplicație.</string>
-    <string name="content_info2"><it>Macroeconomia</it> este un domeniu al științelor economice. Spre deosebire de microeconomie, macroeconomia lucrează cu mărimi agregate, cercetează comportamentul economiei în general, cum ar fi venitul total sau gradul de ocupare al forței de muncă, rata inflației sau oscilațiile conjuncturale. Macroeconomia încearcă să găsească explicații pentru aceste oscilații, să găsească factorii de control relevanți și să stabilească dependențele acestora.</string>
+    <string name="content_info2" tools:ignore="Typos"><it>Macroeconomia</it> este un domeniu al științelor economice. Spre deosebire de microeconomie, macroeconomia lucrează cu mărimi agregate, cercetează comportamentul economiei în general, cum ar fi venitul total sau gradul de ocupare al forței de muncă, rata inflației sau oscilațiile conjuncturale. Macroeconomia încearcă să găsească explicații pentru aceste oscilații, să găsească factorii de control relevanți și să stabilească dependențele acestora.</string>
     <string name="li_banca"><b><li>Banca:</li></b> este o instituție financiară care are ca obiect principal de activitate atragerea de depozite și acordarea de credite. Băncile sunt organizate sub forma unei societăți comerciale pe acțiuni și își desfășoară activitatea sub supravegherea băncii centrale. Activitatea bancară, cuprinzând atragerea de depozite și acordarea de credite ca operațiuni bancare principale, precum și serviciile bancare conexe și accesorii, este o activitate economică de interes public foarte atent reglementată. Băncile se constituie în majoritatea legislațiilor sub forma societăților pe acțiuni, iar la constituire fondatorii trebuie să dispună de un capital social care depăsește cu mult cerințele unei societăți pe acțiuni obișnuite.</string>
     <string name="li_economii_nationale"><b><li>Economia nationala:</li></b> reprezinta un sistem generalizat, complex de activitati economico-sociale aparute si desfasurate intre agentii economici intr-un cadru statal, determinat din punct de vedere istoric, politic, social si economic, pe suportul resurselor economice (componenta cantitativa) si a motivatiilor comportamentale (componenta calitativa) ale agentilor economici.Structura economiei reflecta totalitatea elementelor ei componente si relatiile dintre acestea privite in interdependenta si integralitatea lor. </string>
     <string name="li_asigurari"><b><li>Asigurarea:</li></b> este un mijloc de protecție împotriva pierderilor financiare. Este o formă de gestionare a riscurilor, utilizată în principal pentru a se asigura împotriva riscului unei pierderi contingente sau incerte.O entitate care oferă asigurare este cunoscută ca asigurător, societate de asigurare, transportator de asigurări sau subscriptor. O persoană sau entitate care cumpără asigurare este cunoscută ca asigurată sau ca titular de poliță de asigurare. Tranzacția de asigurare implică asigurarea presupunând o pierdere relativ redusă, garantată și cunoscută, sub forma plății către asigurător, în schimbul promisiunii asigurătorului de a compensa asiguratul în cazul unei pierderi acoperite. Pierderea poate fi sau nu financiară, dar trebuie să fie redusă la termeni financiari și de obicei implică ceva în care asiguratul are un interes asigurător stabilit prin proprietate, posesie sau relație preexistentă.</string>
@@ -115,4 +115,44 @@
     <string name="rata_dobanzii_credit">Rata dobanzii credit</string>
     <string name="vizualizeaza_statistici_in_timp_real">Vizualizeaza statistici in timp real</string>
     <string name="tesla_inc">Tesla, Inc.</string>
+    <string name="selecteaza_limba"><li>Selecteaza limba</li></string>
+    <string name="alege_aplicatia" tools:ignore="Typos">Alege aplicatia</string>
+    <string name="nu_exista_app_comp">Nu exista o aplicatie care sa deschida mesageria! Descarca una de pe Magazin Play (ex: Gmail, Yahoo Mail)</string>
+    <string name="err_no_text_send_mail">Pentru a trimite un mail catre centrul de suport este nevoie sa introduci un mesaj aici !</string>
+    <string name="text_gol">Textul este gol !</string>
+    <string name="inventar">Inventar</string>
+    <string name="cost_de_oportunitate">Cost de oportunitate</string>
+    <string name="parola">Parola</string>
+    <string name="vizualizeaza_stiatistica">Vizualizeaza stiatistica</string>
+    <string name="info">info</string>
+    <string name="macroeconomie">Macroeconomie</string>
+    <string name="ramai_conectat_ask">Ramai conectat ?</string>
+    <string name="nu">Nu</string>
+    <string name="da">Da</string>
+    <string name="ajutor">Ajutor</string>
+    <string name="credit_ipotecar">Pentru aprobarea creditului, salariul tău net lunar trebuie să fie de minimum 1.524 lei. Dacă obții venituri de la mai mulți angajatori, se acceptă cumularea acestora atât timp cât cel puțin unul din venituri este echivalentul salariului minim pe economie.</string>
+    <string name="credit_imobiliar">Creditul ipotecar Patria Acasă este disponibil în lei sau euro și poate fi utilizat pentru achiziționarea unui imobil ( casă sau apartament) sau unui alt credit imobiliar deținut la altă bancă.</string>
+    <string name="credit_pe_viata">Singurul cost al asigurării este prima lunară. Adică 0,138% din valoarea soldului creditului. Și ea va scădea odată cu rambursarea creditului. Un calcul orientativ: la un credit de 20.000 de lei, suma de plată pentru prima lună este 27,60 lei. Ulterior, ea va scădea proporțional cu suma rămasă de rambursat.</string>
+    <string name="credit_obligatar">Creditul obligatar reprezinta o grupa a operatiilor de credit cu existenta seculara care se refera la relatiile de credit in care partenerii sunt institutiile statale sau intreprinderile economice in calitate de debitori, care emit obligatiunile, in aceasta calitate, pe de o parte, si creditorii, subscriitori si detinatori ai acestor obligatiuni, care-si angajeaza astfel capitalurile, in vederea obtinerii unui venit sigur sub forma principala de dobanzi.</string>
+    <string name="credit_de_consum">Creditele de consum sunt acele împrumuturi făcute pentru achiziționarea unor bunuri de consum sau servicii. Se folosesc frecvent pentru a cumpăra mașini, călătorii sau obiecte de uz casnic.</string>
+    <string name="credit_bancar">Credit prin care banca pune la dispozitia solicitantului sume de bani ce vor fi restituite la un termen determinat (imprumut de bani).Creditul bancar are la baza un contract intre banca si un client, care poate fi o persoana fizica, o persoana juridica sau institutie de stat.</string>
+    <string name="credit_comercial">Creditul comercial este un instrument esențial pentru companiile care doresc să cucerească noi piețe și să clădească o relație comercială pe termen lung. Indispensabil în anumite sectoare, cum ar fi sectorul distribuției sau sectorul construcțiilor, creditul comercial implică diverse riscuri, însă există modalități de a le controla în mod eficient.</string>
+    <string name="credit_nebancar">Un credit nebancar se caracterizeaza urmatoarele: vei primi banii rapid; ai nevoie de un numar redus de documente pentru primirea imprumutului nebancar; toti pasii de realizare a creditului nebancar se completeaza online, direct din fata calculatorului. Un credit bancar, spre deosebire de imprumutul nebancar, te obliga la: prezentarea unui numar voluminos de acte care fac obiectul eligibilitatii in vederea primirii creditului; imprumuturile bancare se obtin mult mai greu spre deosebire de creditele nebancare; practicarea comisioanelor in baza carora angajatii bancilor verifica dosarul viitorului beneficiar; pasii pe care ii urmezi pentru acordarea imprumuturilor bancare sunt realizati la sediul bancii respective.</string>
+    <string name="ipotecar">Ipotecar</string>
+    <string name="imobiliar">Imobiliar</string>
+    <string name="pe_viata">Pe viata</string>
+    <string name="obligatar">Obligatar</string>
+    <string name="de_consum">De consum</string>
+    <string name="bancar">Bancar</string>
+    <string name="comercial">Comercial</string>
+    <string name="nebancar">Nebancar</string>
+    <string name="max_10_ani">maxim de 10 ani</string>
+    <string name="max_15_ani">maxim de 15 ani</string>
+    <string name="max_20_ani">maxim 20 de ani</string>
+    <string name="max_25_ani">maxim 25 de ani</string>
+    <string name="max_30_ani">maxim 30 de ani</string>
+    <string name="max_35_ani">maxim 35 de ani</string>
+    <string name="pe_toata_viata">pe toata durata vietii</string>
+    <string name="perioada_imprumut">Perioada imprumutului:</string>
+    <string name="sterge_tot_mesajul">Sterge tot mesajul</string>
 </resources>

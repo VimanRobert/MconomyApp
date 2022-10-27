@@ -152,7 +152,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rata_text" />
 
-        <EditText
+        <Spinner
             android:id="@+id/tip_perioada_input"
             android:layout_width="142dp"
             android:layout_height="41dp"
@@ -161,6 +161,8 @@
             android:hint="@string/lunar"
             android:inputType="textAutoComplete"
             android:textSize="20sp"
+            android:background="@color/silver"
+            android:accessibilityPaneTitle="Selecteaza"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tip_perioada_text"
             app:layout_constraintTop_toBottomOf="@+id/rata_pick" />

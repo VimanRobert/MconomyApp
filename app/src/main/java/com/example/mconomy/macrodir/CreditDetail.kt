@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentCreditDetailBinding
 
 
@@ -32,8 +33,8 @@ class CreditDetail : Fragment() {
         val descriere = args?.getString("descriere")
 
         binding.tipCredit.text = tip.toString()
-        binding.rataDobanziiCredit.text = "Rata dobanzii: ${rata.toString()}%"
-        binding.perioadaImprumutCredit.text = "Perioada imprumutului: ${perioada.toString()}"
+        binding.rataDobanziiCredit.text = "${getString(R.string.rata_dobanzii)} ${rata.toString()}%"
+        binding.perioadaImprumutCredit.text = "${getString(R.string.perioada_imprumut)} ${perioada.toString()}"
         binding.descriereTipCredit.text = descriere.toString()
 
     }
