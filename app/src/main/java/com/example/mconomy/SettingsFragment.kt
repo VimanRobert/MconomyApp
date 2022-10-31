@@ -8,6 +8,7 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -47,9 +48,9 @@ class SettingsFragment : Fragment() {
         val subjectMessage = getString(R.string.ajutor)
         binding.buttonSchimbaParola.setOnClickListener {
             val builder = AlertDialog.Builder(context)
-            builder.setMessage("Esti sigur ?")
+            builder.setMessage(getString(R.string.esti_sigur))
 
-            builder.setTitle("Schimba parola")
+            builder.setTitle(getString(R.string.schimba_parola))
             builder.setCancelable(true)
 
 
@@ -62,7 +63,7 @@ class SettingsFragment : Fragment() {
                         //if (task.isSuccessful) {
                         Toast.makeText(
                             context,
-                            "Emailul a fost trimis! verifica mailbox-ul.",
+                            getString(R.string.mail_trimis),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -74,12 +75,12 @@ class SettingsFragment : Fragment() {
                     builder2.setCancelable(true)
 
 
-                    builder2.setNegativeButton("Nu") { _, _ ->
+                    builder2.setNegativeButton(R.string.nu) { _, _ ->
                         auth.signOut()
                         val intent = Intent(activity, MainActivity::class.java)
                         activity?.startActivity(intent)
                     }
-                    builder2.setPositiveButton("Da") { dialog, _ ->
+                    builder2.setPositiveButton(R.string.da) { dialog, _ ->
                         dialog.cancel()
                     }
                     val alertDialog2 = builder2.create()
@@ -102,7 +103,10 @@ class SettingsFragment : Fragment() {
         langAdapter.setDropDownViewResource(android.R.layout.simple_gallery_item)
         val setLang = binding.schimbaLimba
         setLang.adapter = langAdapter
-        setLang.setSelection(0)
+        if(binding.buttonTrimiteMesajul.text.toString() == "Trimite")
+            setLang.setSelection(1)
+        else
+            setLang.setSelection(0)
 
         //STERGEREA MESAJULUI
 
@@ -128,9 +132,12 @@ class SettingsFragment : Fragment() {
                 if (select == "English") {
                     //setLocalLanguage(MainActivity(), "en")
                     setLocalLanguage("en")
+                    //setCurrentFragment(SettingsFragment())
+
                 } else if (select == "Romana") {
                     //setLocalLanguage(MainActivity(), "ro")
                     setLocalLanguage("ro")
+                    //setCurrentFragment(SettingsFragment())
                 }
             }
 
@@ -185,5 +192,10 @@ class SettingsFragment : Fragment() {
 
         }
     }
+    private fun setCurrentFragment(fragment: Fragment)=
+        parentFragmentManager.beginTransaction().apply {
+            replace(R.id.nav_host,fragment)
+            commit()
+        }
 
 }

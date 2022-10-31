@@ -111,16 +111,16 @@ class EconNatFragment : Fragment() {
 
     private fun checkAllFields(): Boolean {
         if (binding.consumid.length() == 0) {
-            binding.consumid.error = "Camp obligatoriu !"
+            binding.consumid.error = getString(R.string.camp_obligatoriu)
             return false
         }
         if (binding.investitiiid.length() == 0) {
-            binding.investitiiid.error = "Camp obligatoriu !"
+            binding.investitiiid.error = getString(R.string.camp_obligatoriu)
             return false
         }
         if (binding.consumid.length() == 0 || binding.investitiiid.length() == 0) {
-            binding.consumid.error = "Camp obligatoriu !"
-            binding.investitiiid.error = "Camp obligatoriu !"
+            binding.consumid.error = getString(R.string.camp_obligatoriu)
+            binding.investitiiid.error = getString(R.string.camp_obligatoriu)
             return false
         }
         return true

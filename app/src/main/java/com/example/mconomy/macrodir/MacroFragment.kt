@@ -50,6 +50,6 @@ class MacroFragment : Fragment() {
             findNavController().navigate(R.id.action_macroFragment_to_firstInFragment)
         }
         val topBarText = activity?.findViewById<TextView>(R.id.topbartext)
-        topBarText?.text = "Macroeconomie"
+        topBarText?.text = getString(R.string.macroeconomie)
     }
 }

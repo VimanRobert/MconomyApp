@@ -155,4 +155,18 @@
     <string name="pe_toata_viata">pe toata durata vietii</string>
     <string name="perioada_imprumut">Perioada imprumutului:</string>
     <string name="sterge_tot_mesajul">Sterge tot mesajul</string>
+    <string name="mail_trimis">Emailul a fost trimis! verifica mailbox-ul.</string>
+    <string name="esti_sigur">Esti sigur ?</string>
+    <string name="pag_mentenanta">In mentenanta ://</string>
+    <string name="incearca_mai_tarziu">\" Incearca mai tarziu.\"</string>
+    <string name="mentenanta_mesaj">Aceasta pagina se afla in mentenanta.</string>
+    <string name="inventar_gol">Inventarul este gol !</string>
+    <string name="salveaza_inventar">Doriti sa salvati sesiunea cu data</string>
+    <string name="salvare_inventar_title">Salvare sesiune de inventar</string>
+    <string name="confirma">Confirma</string>
+    <string name="anulare">Anuleaza</string>
+    <string name="camp_obligatoriu">Camp obligatoriu !</string>
+    <string name="sesiune_salvata">Sesiunea a fost salvata !</string>
+    <string name="eroare_conexiune">A aparut o problema ! Verifica conexiunea la internet</string>
+    <string name="adaugat_cu_succes">Adaugat cu succes !</string>
 </resources>

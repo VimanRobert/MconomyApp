@@ -50,10 +50,10 @@ class MicroFragment : Fragment() {
         binding.toCostOportunitate.setOnClickListener {
 
             val builder = AlertDialog.Builder(context)
-            builder.setMessage("Aceasta pagina se afla in mentenanta.\n" +
-                    " Incearca mai tarziu.")
+            builder.setMessage(getString(R.string.mentenanta_mesaj)+"\n" +
+                    getString(R.string.incearca_mai_tarziu))
 
-            builder.setTitle("In mentenanta ://")
+            builder.setTitle(getString(R.string.pag_mentenanta))
             builder.setCancelable(false)
 
 
@@ -66,6 +66,6 @@ class MicroFragment : Fragment() {
         }
 
         val topBarText = activity?.findViewById<TextView>(topbartext)
-        topBarText?.text = "Microeconomie"
+        topBarText?.text = getString(R.string.microeconomie)
     }
     }

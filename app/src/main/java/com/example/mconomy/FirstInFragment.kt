@@ -13,6 +13,8 @@ import com.example.mconomy.databinding.FragmentFirstInBinding
 class FirstInFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstInBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

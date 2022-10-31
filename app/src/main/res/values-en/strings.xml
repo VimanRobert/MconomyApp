@@ -156,4 +156,18 @@
     <string name="pe_toata_viata">throughout life</string>
     <string name="perioada_imprumut">Loan period:</string>
     <string name="sterge_tot_mesajul">Delete entire message</string>
+    <string name="mail_trimis">The email has been sent! Check your mailbox.</string>
+    <string name="esti_sigur">Are you sure ?</string>
+    <string name="pag_mentenanta">In maintenance ://</string>
+    <string name="incearca_mai_tarziu">Try again later.</string>
+    <string name="mentenanta_mesaj">This page is in maintenance.</string>
+    <string name="inventar_gol">Inventory is empty !</string>
+    <string name="salveaza_inventar">Do you want to save the session with the date</string>
+    <string name="salvare_inventar_title">Save inventory session</string>
+    <string name="confirma">Confirm</string>
+    <string name="anulare">Cancel</string>
+    <string name="camp_obligatoriu">Required field !</string>
+    <string name="sesiune_salvata">The session has been saved !</string>
+    <string name="eroare_conexiune">There was a problem ! Check your internet connection</string>
+    <string name="adaugat_cu_succes">Added successfully !</string>
 </resources>

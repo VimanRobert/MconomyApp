@@ -96,7 +96,7 @@ class BlankFragment : Fragment() {
 
 
                 //var inv_number = 0
-                database = Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2")
+                database = Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2/Produse")
 
 
                 val inventar = InventarData(produsB, pretB, cantitateB, rezcalculB, reztotalB)
@@ -104,17 +104,17 @@ class BlankFragment : Fragment() {
                     countItems++
                     val addSession = SessionData(sesiuneB, countItems, reztotalB, formattedData)
                     database2 = Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2")
-                    database2.child("INFO").setValue(addSession)
+                    database2.child("Info").setValue(addSession)
                     produs.text = null
                     pret.text = null
                     cantitate.text = null
                     rezCalc.text = null
 
-                    Toast.makeText(context, "Adaugat cu succes !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.adaugat_cu_succes), Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener {
                     Toast.makeText(
                         context,
-                        "A aparut o problema ! Verifica conexiunea la internet",
+                        getString(R.string.eroare_conexiune),
                         Toast.LENGTH_SHORT
                     ).show()
                     //}
@@ -125,54 +125,62 @@ class BlankFragment : Fragment() {
         binding.saveInventar.setOnClickListener {
 
             val builder = AlertDialog.Builder(context)
-            builder.setMessage("Doriti sa salvati sesiunea sesiunea cu data $formattedData ?")
+            builder.setMessage(getString(R.string.salveaza_inventar) + " $formattedData ?")
 
-            builder.setTitle("Salvare sesiune de inventar")
-            builder.setCancelable(true)
+            if (binding.rezTotal.text.toString().toDouble() == 0.0) {
+                Toast.makeText(
+                    context,
+                    getString(R.string.inventar_gol),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                builder.setTitle(getString(R.string.salvare_inventar_title))
+                builder.setCancelable(true)
 
 
-            builder.setPositiveButton("Confirma") { dialog, _ ->
-                dialog.apply {
-                    //database = Firebase.database.getReference("Inventar/Sesiunea_$sesiune-$formattedData")
-                    Toast.makeText(
-                        context,
-                        "Sesiunea a fost salvata !\n$formattedData",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                builder.setPositiveButton(getString(R.string.confirma)) { dialog, _ ->
+                    dialog.apply {
+                        //database = Firebase.database.getReference("Inventar/Sesiunea_$sesiune-$formattedData")
+                        Toast.makeText(
+                            context,
+                            getString(R.string.sesiune_salvata)+"\n$formattedData",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-                    produs.text = null
-                    pret.text = null
-                    cantitate.text = null
-                    rezCalc.text = null
-                    rezTotal.text = null
-                    sesiune.text = null
+                        produs.text = null
+                        pret.text = null
+                        cantitate.text = null
+                        rezCalc.text = null
+                        rezTotal.text = null
+                        sesiune.text = null
+                    }
                 }
-            }
-            builder.setNegativeButton("Anuleaza") { dialog, _ ->
-                dialog.cancel()
-            }
+                builder.setNegativeButton(getString(R.string.anulare)) { dialog, _ ->
+                    dialog.cancel()
+                }
 
-            val alertDialog = builder.create()
-            alertDialog.show()
+                val alertDialog = builder.create()
+                alertDialog.show()
 
+            }
         }
     }
 
     private fun checkAllFields(): Boolean {
         if (binding.nrSesiune.length() == 0) {
-            binding.nrSesiune.error = "Camp obligatoriu !"
+            binding.nrSesiune.error = getString(R.string.camp_obligatoriu)
             return false
         }
         if (binding.numeProdusID.length() == 0) {
-            binding.numeProdusID.error = "Camp obligatoriu !"
+            binding.numeProdusID.error = getString(R.string.camp_obligatoriu)
             return false
         }
         if (binding.pretID.length() == 0) {
-            binding.pretID.error = "Camp obligatoriu !"
+            binding.pretID.error = getString(R.string.camp_obligatoriu)
             return false
         }
         if (binding.cantitateID.length() == 0) {
-            binding.cantitateID.error = "Camp obligatoriu !"
+            binding.cantitateID.error = getString(R.string.camp_obligatoriu)
             return false
         }
         return true
