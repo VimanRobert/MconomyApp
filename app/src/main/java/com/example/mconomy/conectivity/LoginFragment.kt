@@ -13,7 +13,6 @@ import com.example.mconomy.conectivity.firebase.FirebaseUtils.FirebaseUtils.fire
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
 
@@ -59,8 +58,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun login() {
-        signInEmail = emailLOG.text.toString().trim()
-        signInPassword = passwordLOG.text.toString().trim()
+        signInEmail = binding.emailLOG.text.toString().trim()
+        signInPassword = binding.passwordLOG.text.toString().trim()
 
         if (notEmpty()) {
             firebaseAuth.signInWithEmailAndPassword(signInEmail, signInPassword)

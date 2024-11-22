@@ -13,9 +13,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.mconomy.conectivity.firebase.FirebaseUtils.FirebaseUtils.firebaseAuth
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentRegisterBinding
-//import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_register.*
-
 
 @SuppressLint("CheckResult")
 class RegisterFragment : Fragment() {
@@ -49,14 +46,14 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun notEmpty(): Boolean = emailREG.text.toString().trim().isNotEmpty() &&
-            passwordREG.text.toString().trim().isNotEmpty() &&
-            passwordConfirm.text.toString().trim().isNotEmpty()
+    private fun notEmpty(): Boolean = binding.emailREG.text.toString().trim().isNotEmpty() &&
+            binding.passwordREG.text.toString().trim().isNotEmpty() &&
+            binding.passwordConfirm.text.toString().trim().isNotEmpty()
 
     private fun identicalPassword(): Boolean {
         var identical = false
         if (notEmpty() &&
-            passwordREG.text.toString().trim() == passwordConfirm.text.toString().trim()
+            binding.passwordREG.text.toString().trim() == binding.passwordConfirm.text.toString().trim()
         ) {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
             identical = true
@@ -74,8 +71,8 @@ class RegisterFragment : Fragment() {
 
     private fun signIn() {
         if (identicalPassword()) {
-            userEmail = emailREG.text.toString().trim()
-            userPassword = passwordREG.text.toString().trim()
+            userEmail = binding.emailREG.text.toString().trim()
+            userPassword = binding.passwordREG.text.toString().trim()
 
             firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
                 .addOnCompleteListener { task ->
