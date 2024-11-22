@@ -1,4 +1,4 @@
-package com.example.mconomy
+package com.example.mconomy.conectivity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.mconomy.FirebaseUtils.FirebaseUtils.firebaseAuth
+import com.example.mconomy.conectivity.firebase.FirebaseUtils.FirebaseUtils.firebaseAuth
+import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentRegisterBinding
 //import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_register.*
@@ -73,7 +74,6 @@ class RegisterFragment : Fragment() {
 
     private fun signIn() {
         if (identicalPassword()) {
-            // identicalPassword() returns true only  when inputs are not empty and passwords are identical
             userEmail = emailREG.text.toString().trim()
             userPassword = passwordREG.text.toString().trim()
 

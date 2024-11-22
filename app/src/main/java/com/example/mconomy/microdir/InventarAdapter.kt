@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mconomy.R
 
 class InventarAdapter : RecyclerView.Adapter<InventarAdapter.InventarViewHolder>() {
-
     private val invList = ArrayList<InventarData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InventarViewHolder {
@@ -21,11 +20,13 @@ class InventarAdapter : RecyclerView.Adapter<InventarAdapter.InventarViewHolder>
     override fun onBindViewHolder(holder: InventarViewHolder, position: Int) {
         val currentItem = invList[position]
 
-        holder.produs.text = currentItem.produs
-        holder.cantitate.text = currentItem.cantitate.toString()
-        holder.pret.text = currentItem.pret.toString()
-        holder.rez.text = currentItem.rez.toString()
-        holder.rezTotal.text = currentItem.rezTotal.toString()
+        holder.apply {
+            produs.text = currentItem.produs
+            cantitate.text = currentItem.cantitate.toString()
+            pret.text = currentItem.pret.toString()
+            rez.text = currentItem.rez.toString()
+            rezTotal.text = currentItem.rezTotal.toString()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -39,14 +40,11 @@ class InventarAdapter : RecyclerView.Adapter<InventarAdapter.InventarViewHolder>
         notifyDataSetChanged()
     }
 
-
     class InventarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val produs: TextView = itemView.findViewById(R.id.nume_produs_input)
         val pret: TextView = itemView.findViewById(R.id.pret_input)
         val cantitate: TextView = itemView.findViewById(R.id.cantitate_input)
         var rez: TextView = itemView.findViewById(R.id.rezultat_input)
         var rezTotal: TextView = itemView.findViewById(R.id.rezultat_acumulat_input)
-
     }
 }

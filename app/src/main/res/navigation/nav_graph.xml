@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.mconomy.LoginFragment"
+        android:name="com.example.mconomy.conectivity.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstInFragment"
-        android:name="com.example.mconomy.FirstInFragment"
+        android:name="com.example.mconomy.conectivity.FirstInFragment"
         android:label="fragment_first_in"
         tools:layout="@layout/fragment_first_in" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.mconomy.RegisterFragment"
+        android:name="com.example.mconomy.conectivity.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/microFragment"
-        android:name="com.example.mconomy.MicroFragment"
+        android:name="com.example.mconomy.microdir.MicroFragment"
         android:label="fragment_micro"
         tools:layout="@layout/fragment_micro" >
         <action
@@ -228,7 +228,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.mconomy.SettingsFragment"
+        android:name="com.example.mconomy.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
     </fragment>

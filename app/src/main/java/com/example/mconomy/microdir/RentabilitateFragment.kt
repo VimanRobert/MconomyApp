@@ -11,9 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentRentabilitateBinding
 
-
 class RentabilitateFragment : Fragment() {
-
     private lateinit var binding: FragmentRentabilitateBinding
 
     override fun onCreateView(
@@ -35,83 +33,73 @@ class RentabilitateFragment : Fragment() {
             bundle.putFloat("keyRentFin", binding.rentFinanciaraText.text.toString().toFloat())
             bundle.putFloat("keyRentAct", binding.rentActiuniText.text.toString().toFloat())
             bundle.putFloat("keyRataDob", binding.rataDobanziiText.text.toString().toFloat())
-            findNavController().navigate(R.id.action_rentabilitateFragment_to_statisticaRentabilitateFragment, bundle)
-
-
-            // Thanks Razvan Ursu who helped me doing this implementation
-
+            findNavController().navigate(
+                R.id.action_rentabilitateFragment_to_statisticaRentabilitateFragment,
+                bundle
+            )
         }
 
         binding.imageViewCapitaluri.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setMessage("Suma tuturor capitalurilor")
+            val builder = AlertDialog.Builder(context).apply {
+                setMessage("Suma tuturor capitalurilor")
 
-            builder.setTitle("Capitaluri totale")
-            builder.setCancelable(false)
-
-
-            builder.setNeutralButton("Ok") { dialog, _ ->
-                dialog.cancel()
+                setTitle("Capitaluri totale")
+                setCancelable(false)
+                setNeutralButton("Ok") { dialog, _ ->
+                    dialog.cancel()
+                }
             }
 
             val alertDialog = builder.create()
             alertDialog.show()
         }
         binding.imageViewActiveTotale.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setMessage("Suma tuturor al activelor imobilizante, circulante si cheltuielilor in avans.")
-
-            builder.setTitle("Active totale")
-            builder.setCancelable(false)
-
-
-            builder.setNeutralButton("Ok") { dialog, _ ->
-                dialog.cancel()
+            val builder = AlertDialog.Builder(context).apply {
+                setMessage("Suma tuturor al activelor imobilizante, circulante si cheltuielilor in avans.")
+                setTitle("Active totale")
+                setCancelable(false)
+                setNeutralButton("Ok") { dialog, _ ->
+                    dialog.cancel()
+                }
             }
 
             val alertDialog = builder.create()
             alertDialog.show()
         }
         binding.imageViewProfitNet.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setMessage("Diferenta dintre venit si cheltuieli")
-
-            builder.setTitle("Profitul net")
-            builder.setCancelable(false)
-
-
-            builder.setNeutralButton("Ok") { dialog, _ ->
-                dialog.cancel()
+            val builder = AlertDialog.Builder(context).apply {
+                setMessage("Diferenta dintre venit si cheltuieli")
+                setTitle("Profitul net")
+                setCancelable(false)
+                setNeutralButton("Ok") { dialog, _ ->
+                    dialog.cancel()
+                }
             }
 
             val alertDialog = builder.create()
             alertDialog.show()
         }
         binding.imageViewDatorii.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setMessage("Suma tuturor datoriilor")
-
-            builder.setTitle("Datorii")
-            builder.setCancelable(false)
-
-
-            builder.setNeutralButton("Ok") { dialog, _ ->
-                dialog.cancel()
+            val builder = AlertDialog.Builder(context).apply {
+                setMessage("Suma tuturor datoriilor")
+                setTitle("Datorii")
+                setCancelable(false)
+                setNeutralButton("Ok") { dialog, _ ->
+                    dialog.cancel()
+                }
             }
 
             val alertDialog = builder.create()
             alertDialog.show()
         }
         binding.imageViewDobanda.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setMessage("Dobanda acumulata")
-
-            builder.setTitle("Dobanda")
-            builder.setCancelable(false)
-
-
-            builder.setNeutralButton("Ok") { dialog, _ ->
-                dialog.cancel()
+            val builder = AlertDialog.Builder(context).apply {
+                setMessage("Dobanda acumulata")
+                setTitle("Dobanda")
+                setCancelable(false)
+                setNeutralButton("Ok") { dialog, _ ->
+                    dialog.cancel()
+                }
             }
 
             val alertDialog = builder.create()
@@ -119,8 +107,6 @@ class RentabilitateFragment : Fragment() {
         }
 
         binding.calculRentabilitate.setOnClickListener {
-
-
             val profitNet: Double = binding.profitNetInput.text.toString().toDouble()
             val capitalPropriu: Double = binding.capitaluriInput.text.toString().toDouble()
             val activeTotale: Double = binding.activeTotaleInput.text.toString().toDouble()
@@ -133,8 +119,6 @@ class RentabilitateFragment : Fragment() {
 
             isAllFieldsChecked = checkTimeType()
             if (isAllFieldsChecked) {
-
-
                 if (rentabilitateFinanciara > rentabilitateaActiunilor && rentabilitateaActiunilor > rataDobanzii) {
                     binding.indicatiiTextRentabilitate.text =
                         "Rent. Financiara : $rentabilitateFinanciara\nRent. Actiunilor : $rentabilitateaActiunilor\nRata dobanzii : $rataDobanzii\n RF > RA > RD\n Conditia pentru rentabilitate a fost indeplinita !"
@@ -170,13 +154,6 @@ class RentabilitateFragment : Fragment() {
                 binding.rataDobanziiText.text = rataDobanzii.toString()
 
             }
-            /*
-            statisticaRentabilitateFragment.setArguments(savedInstanceState)
-            savedInstanceState?.putString("keyRentFin", binding.rentFinanciaraText.text.toString())
-            savedInstanceState?.putString("keyRentAct", binding.rentActiuniText.text.toString())
-            savedInstanceState?.putString("keyRentFin", binding.rataDobanziiText.text.toString())
-
-             */
         }
     }
 

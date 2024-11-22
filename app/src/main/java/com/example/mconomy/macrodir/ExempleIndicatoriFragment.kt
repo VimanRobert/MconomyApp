@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mconomy.databinding.FragmentExempleIndicatoriBinding
 
-
 @SuppressLint("StaticFieldLeak")
 private lateinit var binding: FragmentExempleIndicatoriBinding
 
 class ExempleIndicatoriFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

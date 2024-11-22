@@ -1,4 +1,4 @@
-package com.example.mconomy
+package com.example.mconomy.conectivity.firebase
 
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
@@ -8,6 +8,8 @@ import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import com.example.mconomy.MainActivity
+import com.example.mconomy.R
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -15,10 +17,10 @@ import com.google.firebase.messaging.RemoteMessage
 const val channelId = "notification_channel"
 const val channelName = "com.example.mconomy"
 
-class FirebaseMessaging :  FirebaseMessagingService(){
+class FirebaseMessaging : FirebaseMessagingService() {
 
     @SuppressLint("UnspecifiedImmutableFlag")
-    fun generateNotification(title: String, message: String){
+    fun generateNotification(title: String, message: String) {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 
@@ -33,16 +35,18 @@ class FirebaseMessaging :  FirebaseMessagingService(){
 
         builder = builder.setContent(getRemoteView(title, message))
 
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        val notificationChannel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
+        val notificationChannel =
+            NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
         notificationManager.createNotificationChannel(notificationChannel)
 
         notificationManager.notify(0, builder.build())
     }
 
     @SuppressLint("RemoteViewLayout")
-    fun getRemoteView(title: String, message: String) : RemoteViews{
+    fun getRemoteView(title: String, message: String): RemoteViews {
         val remoteView = RemoteViews("com.example.mconomy", R.layout.notification)
 
         remoteView.setTextViewText(R.id.notification_title, title)
@@ -52,8 +56,9 @@ class FirebaseMessaging :  FirebaseMessagingService(){
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        if(remoteMessage.notification != null){
-            generateNotification(remoteMessage.notification!!.title.toString(),
+        if (remoteMessage.notification != null) {
+            generateNotification(
+                remoteMessage.notification!!.title.toString(),
                 remoteMessage.notification!!.body.toString()
             )
         }

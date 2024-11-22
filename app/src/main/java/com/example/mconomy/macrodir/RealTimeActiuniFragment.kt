@@ -1,7 +1,6 @@
 package com.example.mconomy.macrodir
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentRealTimeActiuniBinding
-import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
-import com.example.mconomy.StockAPI
-import com.example.mconomy.StockData
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -23,15 +17,12 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-const val STOCKSURL = "https://host:port/ic/api/integration/v1/flows/rest/ORCL-R-REST_STOCK_SERVICE/1.0/v1/"
+const val STOCKSURL =
+    "https://host:port/ic/api/integration/v1/flows/rest/ORCL-R-REST_STOCK_SERVICE/1.0/v1/"
 
 @GlideModule
 class RealTimeActiuniFragment : Fragment() {
-
     private lateinit var binding: FragmentRealTimeActiuniBinding
 
     override fun onCreateView(
@@ -46,9 +37,10 @@ class RealTimeActiuniFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       //getStockValues()
+        //getStockValues()
 
     }
+
     /*
     private fun getStockValues() {
         val retrofit = Retrofit.Builder().addConverterFactory(ScalarsConverterFactory.create()).baseUrl(STOCKSURL).build().create(StockAPI::class.java)
@@ -84,13 +76,13 @@ class RealTimeActiuniFragment : Fragment() {
     }
 
      */
-    private fun getPhoto(){
+    private fun getPhoto() {
         val dbRef: DatabaseReference = Firebase.database.reference
-        dbRef.addValueEventListener(object: ValueEventListener {
+        dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val img = snapshot.getValue<Photo>()
                 img?.let {
-                    if (img.Img == ""){
+                    if (img.Img == "") {
                         binding.teslaImg.setImageResource(R.drawable.ic_launcher_background)
                     } else {
                         context?.let { it1 ->
@@ -101,10 +93,10 @@ class RealTimeActiuniFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context,"Failed to load Img.",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Failed to load Img.", Toast.LENGTH_SHORT).show()
             }
-
         })
     }
+
     data class Photo(var Img: String? = null)
 }

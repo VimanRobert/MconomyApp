@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="100sp"
-    tools:context=".SettingsFragment"
+    tools:context=".settings.SettingsFragment"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
         />
 
     <Button
-        android:id="@+id/button_schimba_parola"
+        android:id="@+id/button_change_password"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:text="@string/trimite_cerere_pentru_schimbarea_parolei"
@@ -60,7 +60,7 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_schimba_parola"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_change_password"/>
     <TextView
         android:id="@+id/description_suport"
         android:layout_width="match_parent"

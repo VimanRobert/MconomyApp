@@ -1,5 +1,4 @@
-package com.example.mconomy
-
+package com.example.mconomy.settings
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -8,7 +7,6 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -17,10 +15,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.mconomy.MainActivity
+import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
-
 
 class SettingsFragment : Fragment() {
 
@@ -42,11 +41,8 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        //CERERE PENTRU SCHIMBAREA PAROLEI
-
         val subjectMessage = getString(R.string.ajutor)
-        binding.buttonSchimbaParola.setOnClickListener {
+        binding.buttonChangePassword.setOnClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setMessage(getString(R.string.esti_sigur))
 
@@ -103,7 +99,7 @@ class SettingsFragment : Fragment() {
         langAdapter.setDropDownViewResource(android.R.layout.simple_gallery_item)
         val setLang = binding.schimbaLimba
         setLang.adapter = langAdapter
-        if(binding.buttonTrimiteMesajul.text.toString() == "Trimite")
+        if (binding.buttonTrimiteMesajul.text.toString() == "Trimite")
             setLang.setSelection(1)
         else
             setLang.setSelection(0)
@@ -112,9 +108,9 @@ class SettingsFragment : Fragment() {
 
         binding.stergeMesajul.setOnClickListener {
             val mesaj = binding.suportMessageText.text
-            if(mesaj.isNotEmpty()){
+            if (mesaj.isNotEmpty()) {
                 mesaj.clear()
-            }else if(mesaj.isEmpty()) {
+            } else if (mesaj.isEmpty()) {
                 Toast.makeText(context, getString(R.string.text_gol), Toast.LENGTH_SHORT)
             }
         }
@@ -192,9 +188,10 @@ class SettingsFragment : Fragment() {
 
         }
     }
-    private fun setCurrentFragment(fragment: Fragment)=
+
+    private fun setCurrentFragment(fragment: Fragment) =
         parentFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_host,fragment)
+            replace(R.id.nav_host, fragment)
             commit()
         }
 

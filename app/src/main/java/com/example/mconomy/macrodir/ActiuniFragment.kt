@@ -14,16 +14,13 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.*
 
 class ActiuniFragment : Fragment() {
-
     private lateinit var binding: FragmentActiuniBinding
     private lateinit var barChart: BarChart
     private lateinit var barDataSet: BarDataSet
     private lateinit var barData: BarData
-
     private lateinit var pieChart: PieChart
     private lateinit var pieDataSet: PieDataSet
     private lateinit var pieData: PieData
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,14 +36,11 @@ class ActiuniFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val actiuniList = mutableListOf<BarEntry>()
-
         barChart = view.findViewById(R.id.bar_chart_actiuni)
         getBarData()
         barDataSet = BarDataSet(actiuniList, "Portofoliul pe 4 zile")
         barData = BarData(barDataSet)
         barChart.data = barData
-        //barDataSet.setColors(Color.RED)
         barDataSet.setColors(Color.RED, Color.BLUE, Color.GREEN)
         barDataSet.valueTextSize = 20f
 
@@ -61,29 +55,31 @@ class ActiuniFragment : Fragment() {
         pieDataSet.valueColors.add(Color.BLACK)
         pieDataSet.valueTextSize = 26f
 
-
         binding.butonToActiuniData.setOnClickListener {
             findNavController().navigate(R.id.action_actiuniFragment_to_realTimeActiuniFragment)
         }
     }
 
     private fun getBarData() {
-        actiuniList.add(BarEntry(1f, 10f, "Initial"))
-        actiuniList.add(BarEntry(2f, 20f, "in creste"))
-        actiuniList.add(BarEntry(3f, 15f, "in scadere"))
-        actiuniList.add(BarEntry(4f, 16f, "in crestere"))
-        actiuniList.add(BarEntry(5f, 16f, "constant"))
-        actiuniList.add(BarEntry(6f, 14f, "in scadere"))
-        actiuniList.add(BarEntry(7f, 14f, "constant"))
-        actiuniList.add(BarEntry(8f, 30f, "in crestere"))
-
+        actiuniList.apply {
+            add(BarEntry(1f, 10f, "Initial"))
+            add(BarEntry(2f, 20f, "in creste"))
+            add(BarEntry(3f, 15f, "in scadere"))
+            add(BarEntry(4f, 16f, "in crestere"))
+            add(BarEntry(5f, 16f, "constant"))
+            add(BarEntry(6f, 14f, "in scadere"))
+            add(BarEntry(7f, 14f, "constant"))
+            add(BarEntry(8f, 30f, "in crestere"))
+        }
     }
 
     private fun getPieData() {
-        actiuniList2.add(PieEntry(2f, "Ziua 1", 200))
-        actiuniList2.add(PieEntry(5f, "Ziua 2", 500))
-        actiuniList2.add(PieEntry(4f, "Ziua 3", 400))
-        actiuniList2.add(PieEntry(7f, "Ziua 4", 700))
+        actiuniList2.apply {
+            add(PieEntry(2f, "Ziua 1", 200))
+            add(PieEntry(5f, "Ziua 2", 500))
+            add(PieEntry(4f, "Ziua 3", 400))
+            add(PieEntry(7f, "Ziua 4", 700))
+        }
         val pieStat = binding.pieShowStatus
         for (i in actiuniList2) {
             pieStat.append(i.label.toString() + ": " + i.data + "\n")

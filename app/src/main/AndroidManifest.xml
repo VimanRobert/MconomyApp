@@ -35,7 +35,7 @@
         </activity>
 
         <service
-            android:name=".FirebaseUtils"
+            android:name=".conectivity.firebase.FirebaseUtils"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -43,7 +43,7 @@
         </service>
 
         <service
-            android:name=".FirebaseMessaging"
+            android:name=".conectivity.firebase.FirebaseMessaging"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

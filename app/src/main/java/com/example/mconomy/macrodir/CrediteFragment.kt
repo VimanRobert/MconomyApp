@@ -10,9 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mconomy.R
 import com.example.mconomy.databinding.CrediteListBinding
 
-
 class CrediteFragment : Fragment() {
-
     private lateinit var binding: CrediteListBinding
     private lateinit var arrayList: ArrayList<CreditData>
 
@@ -27,7 +25,6 @@ class CrediteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val listaCreditItem: List<CreditData>
         arrayList = ArrayList()
 
         val tipCreditArray = arrayOf(
@@ -43,7 +40,6 @@ class CrediteFragment : Fragment() {
         val rataDobanziiArray = arrayOf(5.0, 7.0, 10.0, 20.0, 30.0, 35.0, 1.0, 8.5, 5.5, 6.0, 6.5)
         val perioadaImprumutArray =
             arrayOf(
-
                 getString(R.string.max_10_ani),
                 getString(R.string.max_15_ani),
                 getString(R.string.max_20_ani),
@@ -51,10 +47,8 @@ class CrediteFragment : Fragment() {
                 getString(R.string.max_30_ani),
                 getString(R.string.max_35_ani),
                 getString(R.string.pe_toata_viata)
-
             )
         val descriereArray = arrayOf(
-
             getString(R.string.credit_ipotecar),
             getString(R.string.credit_imobiliar),
             getString(R.string.credit_pe_viata),
@@ -63,16 +57,7 @@ class CrediteFragment : Fragment() {
             getString(R.string.credit_bancar),
             getString(R.string.credit_comercial),
             getString(R.string.credit_nebancar)
-
         )
-        //0 - Ipotecar
-        //1 - Imobiliar
-        //2 - Pe viata
-        //3 - Obligatar
-        //4 - De consum
-        //5 - Bancar
-        //6 - Comercial
-        //7 - Nebancar
 
         val creditIpotecar = CreditData(
             tipCreditArray[0],
@@ -127,33 +112,34 @@ class CrediteFragment : Fragment() {
         Log.i("y", "perioada imprumut length ${perioadaImprumutArray.size}")
         Log.i("y", "perioada imprumut index ${perioadaImprumutArray[1]}")
 
-        arrayList.add(creditIpotecar)
-        arrayList.add(creditImobiliar)
-        arrayList.add(creditPeViata)
-        arrayList.add(creditObligatar)
-        arrayList.add(creditConsum)
-        arrayList.add(creditBancar)
-        arrayList.add(creditComercial)
-        arrayList.add(creditNebancar)
-
-        binding.crediteListView.isClickable = true
-        binding.crediteListView.adapter = CreditAdapter(requireContext(), arrayList)
-        // CreditAdapter(context = Fragment(), arrayList)
-        binding.crediteListView.setOnItemClickListener { _, _, position, _ ->
-            val tip = tipCreditArray[position]
-            val rata = rataDobanziiArray[position]
-            val perioada = perioadaImprumutArray[position]
-            val descriere = descriereArray[position]
-
-            val bundle = Bundle()
-            bundle.putString("tip", tip)
-            bundle.putDouble("rata", rata)
-            bundle.putString("perioada", perioada)
-            bundle.putString("descriere", descriere)
-
-            findNavController().navigate(R.id.action_crediteFragment_to_creditDetail, bundle)
+        arrayList.apply {
+            add(creditIpotecar)
+            add(creditImobiliar)
+            add(creditPeViata)
+            add(creditObligatar)
+            add(creditConsum)
+            add(creditBancar)
+            add(creditComercial)
+            add(creditNebancar)
         }
 
+        binding.apply {
+            crediteListView.isClickable = true
+            crediteListView.adapter = CreditAdapter(requireContext(), arrayList)
+            crediteListView.setOnItemClickListener { _, _, position, _ ->
+                val tip = tipCreditArray[position]
+                val rata = rataDobanziiArray[position]
+                val perioada = perioadaImprumutArray[position]
+                val descriere = descriereArray[position]
 
+                val bundle = Bundle()
+                bundle.putString("tip", tip)
+                bundle.putDouble("rata", rata)
+                bundle.putString("perioada", perioada)
+                bundle.putString("descriere", descriere)
+
+                findNavController().navigate(R.id.action_crediteFragment_to_creditDetail, bundle)
+            }
+        }
     }
 }

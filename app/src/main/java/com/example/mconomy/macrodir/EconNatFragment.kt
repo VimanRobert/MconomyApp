@@ -10,11 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentEconNatBinding
 
-
 class EconNatFragment : Fragment() {
-
     private lateinit var binding: FragmentEconNatBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,24 +26,6 @@ class EconNatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var isAllFieldsChecked: Boolean
-
-/*
-        var PIB = binding.pibInput.text
-        var PNB = binding.pnbInput.text
-        var PGB = binding.pgbInput.text
-
-        var consum = binding.consumid.text.toString().toDouble()
-        var investitii = binding.investitiiid.text.toString().toDouble()
-        var exporturi = binding.exporturiid.text.toString().toDouble()
-        var importuri = binding.importuriid.text.toString().toDouble()
-        var expNet = exporturi - importuri
-        var chGuvern = binding.cheltuieliGuvid.text.toString().toDouble()
-        var PIB = binding.pibInput.text
-        var PNB = binding.pnbInput.text
-        var PGB = binding.pgbInput.text
-
- */
-
 
         binding.toExIndicatori.setOnClickListener {
             findNavController().navigate(R.id.action_econNatFragment_to_exempleIndicatoriFragment)

@@ -12,9 +12,7 @@ import com.example.mconomy.databinding.FragmentInventarMainPageBinding
 
 
 class InventarMainPageFragment : Fragment() {
-
     private lateinit var binding: FragmentInventarMainPageBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,13 +25,13 @@ class InventarMainPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.inventarNou.setOnClickListener {
-            findNavController().navigate(R.id.action_inventarMainPageFragment_to_blankFragment)
-        }
-
-        binding.todatabase.setOnClickListener {
-            findNavController().navigate(R.id.action_inventarMainPageFragment_to_inventarSessionItemsFragment)
+        binding.apply {
+            inventarNou.setOnClickListener {
+                findNavController().navigate(R.id.action_inventarMainPageFragment_to_blankFragment)
+            }
+            todatabase.setOnClickListener {
+                findNavController().navigate(R.id.action_inventarMainPageFragment_to_inventarSessionItemsFragment)
+            }
         }
     }
 }

@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.database.*
 
 class InventarRepos {
-    private val invRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Inventar").ref
+    private val invRef: DatabaseReference =
+        FirebaseDatabase.getInstance().getReference("Inventar").ref
 
     @Volatile
     private var instance2: InventarRepos? = null
@@ -28,8 +29,7 @@ class InventarRepos {
 
                     invList.postValue(invList2)
 
-                    //snapshot.ref.path.toString()
-                    invRef.toString().substring(invRef.root.toString().length-1)
+                    invRef.toString().substring(invRef.root.toString().length - 1)
 
                 } catch (exc: java.lang.Exception) {
                     Log.i("A aparut o eroare in procesul de inventariere", exc.message.toString())

@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mconomy.databinding.FragmentProfitBancarBinding
 
-
 class ProfitBancar : Fragment() {
-
     private lateinit var binding: FragmentProfitBancarBinding
 
     override fun onCreateView(
@@ -22,11 +20,9 @@ class ProfitBancar : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         scratchData()
     }
 
-    //inner class WebScratch(override val coroutineContext: CoroutineContext) : CoroutineScope {
     private fun scratchData() {
         /*
         launchCoroutine().launch {
@@ -44,5 +40,4 @@ class ProfitBancar : Fragment() {
          */
     }
     //}
-
 }

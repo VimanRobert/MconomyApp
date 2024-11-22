@@ -12,21 +12,19 @@ import android.widget.ListAdapter
 import android.widget.TextView
 import com.example.mconomy.R
 
-class CreditAdapter(private val context: Context, private val arrayList: ArrayList<CreditData>):
+class CreditAdapter(private val context: Context, private val arrayList: ArrayList<CreditData>) :
     Adapter, ListAdapter {
 
     @SuppressLint("ViewHolder", "InflateParams")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val inflater : LayoutInflater = LayoutInflater.from(context)
+        val inflater: LayoutInflater = LayoutInflater.from(context)
         val view: View = inflater.inflate(R.layout.credite_item_list, null)
-
-        val tipImprumut : TextView = view.findViewById(R.id.titlu_tip_credit)
+        val tipImprumut: TextView = view.findViewById(R.id.titlu_tip_credit)
 
         tipImprumut.text = arrayList[position].tipImprumut
 
         return view
     }
-
 
     override fun registerDataSetObserver(observer: DataSetObserver?) {
         observer?.onChanged().apply {

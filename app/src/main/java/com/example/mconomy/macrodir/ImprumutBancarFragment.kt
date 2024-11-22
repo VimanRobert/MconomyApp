@@ -17,9 +17,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.Locale
 
-
 class ImprumutBancarFragment : Fragment() {
-
     private lateinit var binding: FragmentImprumutBancarBinding
     private lateinit var adapter: ImprumutAdapter
     private lateinit var recyclerView: RecyclerView
@@ -42,17 +40,11 @@ class ImprumutBancarFragment : Fragment() {
         binding.rataPick.minValue = 2
         binding.rataPick.maxValue = 10
 
-
         recyclerView = view.findViewById(R.id.list_ramburs)
         recyclerView.setHasFixedSize(true)
         adapter = ImprumutAdapter()
         recyclerView.adapter = adapter
-        /*
-        val rata = binding.rataPick.toString().toDouble()
-        val perioada = binding.perioadaPick.toString().toDouble()
-        val suma = binding.sumaImprumurata.toString().toDouble()
 
-         */
         loanTypePreferences()
 
         binding.calculeazaAmortizareImprumut.setOnClickListener {
@@ -85,7 +77,7 @@ class ImprumutBancarFragment : Fragment() {
                         suma = 0.0
                     )
 
-                    rambursList.removeLast()
+                    rambursList.removeAt(rambursList.lastIndex)
                     rambursList.add(copy)
 
                     withContext(Dispatchers.Main) {
@@ -98,36 +90,13 @@ class ImprumutBancarFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun checkTimeType(): Boolean {
-
-        //if (binding.tipPerioadaInput.text.toString() != "lunar" || binding.tipPerioadaInput.text.toString() != "trimestrial" || binding.tipPerioadaInput.text.toString() != "semestrial" || binding.tipPerioadaInput.text.toString() != "anual"){
-
-        /*
-        if (binding.tipPerioadaInput.length() == 0) {
-            binding.tipPerioadaInput.error =
-                "trebuie sa scrieti 'lunar, trimestrial, semestrial sau anual'"
-            return false
-        } else if (binding.tipPerioadaInput.text.toString() == "lunar") {
-            binding.tipPerioada.text = "Rata lunara"
-        } else if (binding.tipPerioadaInput.text.toString() == "trimestrial") {
-            binding.tipPerioada.text = "Rata trimestriala"
-
-        } else if (binding.tipPerioadaInput.text.toString() == "semestrial") {
-            binding.tipPerioada.text = "Rata semestriala"
-        } else if (binding.tipPerioadaInput.text.toString() == "anual") {
-            binding.tipPerioada.text = "Rata anuala"
-        } else {
-            binding.tipPerioadaInput.error =
-                "trebuie sa scrieti 'lunar, trimestrial, semestrial sau anual'"
-            return false
-        }
-
-         */
-        if(binding.sumaImprumurata.length() < 2){
+        if (binding.sumaImprumurata.length() < 2) {
             binding.sumaImprumurata.error = "Suma este prea mica!"
             return false
         }
         return true
     }
+
     private fun loanTypePreferences() {
         val localLanguage = Locale.getDefault().displayLanguage
         Log.i("Language", localLanguage)
@@ -139,10 +108,10 @@ class ImprumutBancarFragment : Fragment() {
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, perioadaArrayRO)
         perioadaAdapterRO.setDropDownViewResource(android.R.layout.simple_gallery_item)
         val setPerioada = binding.tipPerioadaInput
-        if(binding.calculeazaAmortizareImprumut.text == "Calculeaza"){
+        if (binding.calculeazaAmortizareImprumut.text == "Calculeaza") {
             setPerioada.adapter = perioadaAdapterRO
             setPerioada.setSelection(0)
-        }else {
+        } else {
             setPerioada.adapter = perioadaAdapterEN
             setPerioada.setSelection(0)
         }

@@ -20,7 +20,6 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class BlankFragment : Fragment() {
-
     private lateinit var binding: FragmentInventarBinding
     private lateinit var database: DatabaseReference
     private lateinit var database2: DatabaseReference
@@ -48,9 +47,6 @@ class BlankFragment : Fragment() {
         val rezTotal = view.findViewById<TextView>(R.id.rezTotal)
         val sesiune = view.findViewById<EditText>(R.id.nr_sesiune)
 
-        //val nrSesiune = view.findViewById<TextView>(R.id.nr_sesiune_input)
-        //val dataSesiune = view.findViewById<TextView>(R.id.data_sesiune_input)
-
         var isAllFieldsChecked: Boolean
 
         val currentDate = LocalDateTime.now()
@@ -73,57 +69,50 @@ class BlankFragment : Fragment() {
             }
         }
 
-
         binding.addProdus.setOnClickListener {
-
             isAllFieldsChecked = checkAllFields()
             if (isAllFieldsChecked) {
 
                 auth = FirebaseAuth.getInstance()
                 val uid = auth.currentUser?.uid.toString()
-                //val userEmail = auth.currentUser?.email.toString()
-
                 val produsB = binding.numeProdusID.text.toString()
                 val pretB = binding.pretID.text.toString().toDouble()
                 val cantitateB = binding.cantitateID.text.toString().toDouble()
                 val rezcalculB = binding.rezInitial.text.toString().toDouble()
                 val reztotalB = binding.rezTotal.text.toString().toDouble()
                 val sesiuneB = binding.nrSesiune.text.toString().toInt()
-                //nrSesiune.text = sesiuneB.toString()
-                //dataSesiune.text = formattedData.toString()
 
-                //if (uid.isNotEmpty()) {
-
-
-                //var inv_number = 0
-                database = Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2/Produse")
-
+                database =
+                    Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2/Produse")
 
                 val inventar = InventarData(produsB, pretB, cantitateB, rezcalculB, reztotalB)
                 database.child(produsB).setValue(inventar).addOnSuccessListener {
                     countItems++
                     val addSession = SessionData(sesiuneB, countItems, reztotalB, formattedData)
-                    database2 = Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2")
+                    database2 =
+                        Firebase.database.getReference("Inventar/$uid/Sesiunea_$sesiuneB-$formattedData2")
                     database2.child("Info").setValue(addSession)
                     produs.text = null
                     pret.text = null
                     cantitate.text = null
                     rezCalc.text = null
 
-                    Toast.makeText(context, getString(R.string.adaugat_cu_succes), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        getString(R.string.adaugat_cu_succes),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }.addOnFailureListener {
                     Toast.makeText(
                         context,
                         getString(R.string.eroare_conexiune),
                         Toast.LENGTH_SHORT
                     ).show()
-                    //}
                 }
             }
         }
 
         binding.saveInventar.setOnClickListener {
-
             val builder = AlertDialog.Builder(context)
             builder.setMessage(getString(R.string.salveaza_inventar) + " $formattedData ?")
 
@@ -140,10 +129,9 @@ class BlankFragment : Fragment() {
 
                 builder.setPositiveButton(getString(R.string.confirma)) { dialog, _ ->
                     dialog.apply {
-                        //database = Firebase.database.getReference("Inventar/Sesiunea_$sesiune-$formattedData")
                         Toast.makeText(
                             context,
-                            getString(R.string.sesiune_salvata)+"\n$formattedData",
+                            getString(R.string.sesiune_salvata) + "\n$formattedData",
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -161,7 +149,6 @@ class BlankFragment : Fragment() {
 
                 val alertDialog = builder.create()
                 alertDialog.show()
-
             }
         }
     }

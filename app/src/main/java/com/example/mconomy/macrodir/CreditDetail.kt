@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import com.example.mconomy.R
 import com.example.mconomy.databinding.FragmentCreditDetailBinding
 
-
 class CreditDetail : Fragment() {
 
     private lateinit var binding: FragmentCreditDetailBinding
@@ -32,10 +31,12 @@ class CreditDetail : Fragment() {
         val perioada = args?.getString("perioada")
         val descriere = args?.getString("descriere")
 
-        binding.tipCredit.text = tip.toString()
-        binding.rataDobanziiCredit.text = "${getString(R.string.rata_dobanzii)} ${rata.toString()}%"
-        binding.perioadaImprumutCredit.text = "${getString(R.string.perioada_imprumut)} ${perioada.toString()}"
-        binding.descriereTipCredit.text = descriere.toString()
-
+        binding.apply {
+            tipCredit.text = tip.toString()
+            rataDobanziiCredit.text = "${getString(R.string.rata_dobanzii)} ${rata.toString()}%"
+            perioadaImprumutCredit.text =
+                "${getString(R.string.perioada_imprumut)} ${perioada.toString()}"
+            descriereTipCredit.text = descriere.toString()
+        }
     }
 }

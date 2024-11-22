@@ -1,4 +1,4 @@
-package com.example.mconomy
+package com.example.mconomy.conectivity.firebase
 
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
@@ -9,11 +9,11 @@ import com.google.firebase.messaging.RemoteMessage
 class FirebaseUtils : FirebaseMessagingService() {
 
     private lateinit var authProvider: FirebaseAuthProvider
-    private lateinit var provide: com.example.mconomy.FirebaseUtils
+    private lateinit var provide: com.example.mconomy.conectivity.firebase.FirebaseUtils
+
     object FirebaseUtils {
         val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     }
-
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
@@ -30,9 +30,7 @@ class FirebaseUtils : FirebaseMessagingService() {
         Log.i("SellerFirebaseService ", "Message :: $message")
     }
 
-    private fun changePassword(email: String): Boolean{
-
-
+    private fun changePassword(email: String): Boolean {
         return true
     }
 }

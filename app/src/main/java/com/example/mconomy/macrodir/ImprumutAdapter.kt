@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mconomy.R
 
 class ImprumutAdapter : RecyclerView.Adapter<ImprumutAdapter.ImprumutViewHolder>() {
-
-
     private val rambursList = ArrayList<ImprumutData>()
 
     class ImprumutViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -29,10 +27,11 @@ class ImprumutAdapter : RecyclerView.Adapter<ImprumutAdapter.ImprumutViewHolder>
 
         val currentItem = rambursList[position]
 
-        holder.nrPerioada.text = currentItem.perioada.toString()
-        holder.indexRata.text = currentItem.rata.toString()
-        holder.sumaRambursata.text = currentItem.suma.toString()
-
+        holder.apply {
+            nrPerioada.text = currentItem.perioada.toString()
+            indexRata.text = currentItem.rata.toString()
+            sumaRambursata.text = currentItem.suma.toString()
+        }
     }
 
     override fun getItemCount(): Int {

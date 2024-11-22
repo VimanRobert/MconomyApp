@@ -10,6 +10,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mconomy.databinding.ActivityMainBinding
+import com.example.mconomy.settings.SettingsFragment
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -27,11 +28,9 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val view = binding.root
         setContentView(view)
-        //hideSystemUI()
         supportActionBar?.hide()
 
         val settings = SettingsFragment()
-        //val home = FirstInFragment()
 
         binding.topBar.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -41,23 +40,23 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     return@setOnMenuItemClickListener true
                 }
+
                 R.id.action_settings -> {
                     setCurrentFragment(settings)
                     return@setOnMenuItemClickListener true
                 }
+
                 R.id.action_home -> {
-                    //setCurrentFragment(home)
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     return@setOnMenuItemClickListener true
                 }
+
                 else -> {
                     return@setOnMenuItemClickListener false
                 }
             }
         }
-
-
     }
 
     private companion object {
@@ -80,10 +79,9 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setCurrentFragment(fragment: Fragment)=
+    private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_host,fragment)
+            replace(R.id.nav_host, fragment)
             commit()
         }
-
 }
