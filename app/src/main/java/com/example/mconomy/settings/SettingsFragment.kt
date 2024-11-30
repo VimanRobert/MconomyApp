@@ -189,10 +189,10 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun setCurrentFragment(fragment: Fragment) =
-        parentFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_host, fragment)
-            commit()
-        }
+//    private fun setCurrentFragment(fragment: Fragment) =
+//        parentFragmentManager.beginTransaction().apply {
+//            replace(R.id.nav_view, fragment)
+//            commit()
+//        }
 
 }

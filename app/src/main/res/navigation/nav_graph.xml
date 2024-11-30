@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.example.mconomy.microdir.BlankFragment"
+        android:name="com.example.mconomy.microdir.InventarMainFragment"
         android:label="fragment_inventar"
         tools:layout="@layout/fragment_inventar" >
         <action

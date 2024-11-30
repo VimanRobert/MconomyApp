@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_host, fragment)
+            replace(R.id.nav_view, fragment)
             commit()
         }
 }

@@ -19,7 +19,7 @@ import com.google.firebase.ktx.Firebase
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class BlankFragment : Fragment() {
+class InventarMainFragment : Fragment() {
     private lateinit var binding: FragmentInventarBinding
     private lateinit var database: DatabaseReference
     private lateinit var database2: DatabaseReference

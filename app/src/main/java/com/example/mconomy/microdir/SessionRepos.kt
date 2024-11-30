@@ -24,12 +24,15 @@ class SessionRepos {
         val uid = auth.currentUser?.uid.toString()
         val invRef: DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Inventar/$uid").ref
+
         invRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 try {
-                    val invList2: List<SessionData> = snapshot.children.map { dataSnapshot ->
-                        dataSnapshot.getValue(SessionData::class.java)!!
+                    val invList2: List<SessionData> = snapshot.children.mapNotNull { dataSnapshot ->
+                        val infoSnapshot = dataSnapshot.child("Info")
+                        infoSnapshot.getValue(SessionData::class.java)
                     }
+
                     invList.postValue(invList2)
                 } catch (exc: java.lang.Exception) {
                     Log.i("A aparut o eroare in procesul de inventariere", exc.message.toString())

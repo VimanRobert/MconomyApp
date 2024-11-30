@@ -2,6 +2,7 @@ package com.example.mconomy.conectivity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,45 +20,39 @@ class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var toast: Toast
-    private lateinit var userEmail: String
-    private lateinit var userPassword: String
     private lateinit var createAccountInputsArray: Array<EditText>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val etEmail = view.findViewById<EditText>(R.id.emailREG)
-        val etPassword = view.findViewById<EditText>(R.id.passwordREG)
-        val etConfirmPassword = view.findViewById<EditText>(R.id.passwordConfirm)
-
-        createAccountInputsArray = arrayOf(etEmail, etPassword, etConfirmPassword)
-
-        val registerAccount = view.findViewById<Button>(R.id.registerID)
-        registerAccount.setOnClickListener {
-            signIn()
+        binding.registerID.setOnClickListener {
+            signIn(
+                binding.emailREG.text.toString(),
+                binding.passwordREG.text.toString(),
+                binding.passwordConfirm.text.toString()
+            )
         }
     }
 
-    private fun notEmpty(): Boolean = binding.emailREG.text.toString().trim().isNotEmpty() &&
-            binding.passwordREG.text.toString().trim().isNotEmpty() &&
-            binding.passwordConfirm.text.toString().trim().isNotEmpty()
-
-    private fun identicalPassword(): Boolean {
+    private fun identicalPassword(password: String, confirmPassword: String): Boolean {
+        Log.i(
+            "TAG",
+            "${binding.emailREG.text}, ${binding.passwordREG.text}, ${binding.passwordConfirm.text}"
+        )
         var identical = false
-        if (notEmpty() &&
-            binding.passwordREG.text.toString().trim() == binding.passwordConfirm.text.toString().trim()
+        if (password.isNotEmpty() && confirmPassword.isNotEmpty() && confirmPassword == password
         ) {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
             identical = true
-        } else if (!notEmpty()) {
+        } else if (password.isEmpty() || confirmPassword.isEmpty()) {
             createAccountInputsArray.forEach { input ->
                 if (input.text.toString().trim().isEmpty()) {
                     input.error = "${input.hint} is required"
@@ -69,12 +64,17 @@ class RegisterFragment : Fragment() {
         return identical
     }
 
-    private fun signIn() {
-        if (identicalPassword()) {
-            userEmail = binding.emailREG.text.toString().trim()
-            userPassword = binding.passwordREG.text.toString().trim()
+    private fun signIn(email: String, password: String, confirmPassword: String) {
+        Log.i(
+            "TAG",
+            "$email, $password, $confirmPassword"
+        )
+        if (identicalPassword(password, confirmPassword)) {
+            email.trim()
+            password.trim()
+            confirmPassword.trim()
 
-            firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(
@@ -91,6 +91,12 @@ class RegisterFragment : Fragment() {
                         ).show()
                     }
                 }
+        } else {
+            Toast.makeText(
+                context,
+                "Parolele nu se potrivesc!\nMai incearca",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
