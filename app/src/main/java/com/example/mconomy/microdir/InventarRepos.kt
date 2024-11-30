@@ -30,13 +30,11 @@ class InventarRepos {
             override fun onDataChange(snapshot: DataSnapshot) {
                 try {
                     for (sessionSnapshot in snapshot.children) {
-                        val sessionId = sessionSnapshot.key // Get session ID
+                        val sessionId = sessionSnapshot.key
 
                         if (sessionId != null) {
-                            // For each session, retrieve the products (Produse)
                             val produseRef = sessionSnapshot.child("Produse")
 
-                            // Loop through the products in this session and map them to InventarData
                             for (productSnapshot in produseRef.children) {
                                 val produs =
                                     productSnapshot.child("produs").getValue(String::class.java)
@@ -48,7 +46,6 @@ class InventarRepos {
                                 val rezTotal =
                                     productSnapshot.child("rezTotal").getValue(Double::class.java)
 
-                                // Create an InventarData object for each product and add to the list
                                 if (produs != null && cantitate != null && pret != null && rez != null && rezTotal != null) {
                                     allProducts.add(
                                         InventarData(
@@ -64,8 +61,6 @@ class InventarRepos {
                         }
                     }
                     invList.postValue(allProducts)
-
-                   // invRef.toString().substring(invRef.root.toString().length - 1)
 
                 } catch (exc: java.lang.Exception) {
                     Log.i("A aparut o eroare in procesul de inventariere", exc.message.toString())
